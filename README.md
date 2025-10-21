@@ -11,10 +11,9 @@ O sistema tem como objetivo gerenciar produtos, clientes e vendas de uma loja de
 ## 📋 Funcionalidades
 
 - Cadastro, listagem, edição e exclusão de **produtos**
-- Cadastro e gerenciamento de **clientes**
-- Registro e controle de **vendas**
+- Cadastro e gerenciamento de **clientes e vendedores**
+- Registro e controle de **pedidos**
 - Sistema de **login e autenticação** de usuários
-- Relatórios simples (estoque, vendas, etc.)
 - Interface responsiva adaptada para desktop e mobile
 
 ---
@@ -23,7 +22,7 @@ O sistema tem como objetivo gerenciar produtos, clientes e vendas de uma loja de
 
 | Camada | Tecnologias |
 |--------|--------------|
-| **Front-end** | HTML, CSS, Bootstrap, ASP.NET Web Forms (ASPX) |
+| **Front-end** | HTML, CSS, ASP.NET Web Forms (ASPX) |
 | **Back-end** | C# (.NET Framework) |
 | **Banco de Dados** | Microsoft SQL Server |
 | **Controle de Versão** | Git e GitHub |
@@ -36,12 +35,14 @@ O sistema tem como objetivo gerenciar produtos, clientes e vendas de uma loja de
 O banco de dados foi normalizado até a 3ª Forma Normal.  
 Principais tabelas:
 
-- `Clientes`
-- `Produtos`
-- `Categorias`
-- `Pedidos`
-- `ItensPedido`
-- `Usuarios`
+- `Cliente`
+- `Produto`
+- `Categoria`
+- `Pedido`
+- `DetalhePedido`
+- `Usuario`
+- `Endereco`
+- `Representante`
 
 Diagrama Entidade-Relacionamento (DER):  
 *(adicione aqui uma imagem ou print do seu DER)*
