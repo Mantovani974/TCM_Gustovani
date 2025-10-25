@@ -45,7 +45,7 @@ Principais tabelas:
 - `Representante`
 
 Diagrama Entidade-Relacionamento (DER):  
-*(adicione aqui uma imagem ou print do seu DER)*
+![DER](DER_25_10.jpg)
 
 ```text
 Clientes (IdCliente, Nome, Telefone, Email, Endereco)
@@ -55,3 +55,4 @@ Pedidos (IdPedido, IdCliente, Data, ValorTotal)
 
 ItensPedido (IdItem, IdPedido, IdProduto, Quantidade, Subtotal)
 Usuarios (IdUsuario, Nome, Login, Senha, Tipo)
+
