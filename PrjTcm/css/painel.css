@@ -1,0 +1,94 @@
+﻿main {
+    padding: 2vw 0;
+    height: auto;
+    zoom: 0.8;
+}
+
+.painel {
+    width: 64vw;
+    height: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #d9d9d9;
+    border-radius: 3vw;
+}
+
+.titulo-painel {
+    width: 100%;
+    height: 6vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .titulo-painel h1 {
+        font-family: anton;
+        font-size: 3.8vw;
+        font-weight: 100;
+        margin-bottom: 0;
+        color: white;
+        text-shadow: 0.15vw 0.15vw 0 black;
+    }
+
+.tabela {
+    width: 60vw;
+    height: 40vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.celula {
+    width: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.icone {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #b3b3b3;
+    border-radius: 5%;
+    overflow: hidden; 
+}
+
+    .icone img {
+        width: 70%;
+        height: auto; 
+        object-fit: contain;
+        margin-bottom: 0.5vw; 
+    }
+
+    .icone h1 {
+        font-size: 2vw;
+        font-family: anton;
+        font-weight: 80;
+    }
+
+.rodape-painel {
+    width: 100%;
+    height: 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.painel button {
+    width: 8vw;
+    height: 3vw;
+    background-color: #6e99f0;
+    font-family: anton;
+    font-size: 2vw;
+    font-weight: 100;
+    border-radius: 3vw;
+    margin-top: 0;
+    margin-bottom: 1.2vw;
+}
