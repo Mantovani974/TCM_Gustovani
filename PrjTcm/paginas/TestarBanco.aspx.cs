@@ -6,6 +6,7 @@ namespace PrjTcm.paginas
 {
     public partial class TestarBanco : System.Web.UI.Page
     {
+        Funcoes f = new Funcoes();
         protected void Page_Load(object sender, EventArgs e)
         {
         }
@@ -30,15 +31,13 @@ namespace PrjTcm.paginas
             FROM tblCliente AS cli
             INNER JOIN tblEndereco AS e ON e.id_endereco = cli.id_endereco";
 
-            gvTeste.DataSource = Funcoes.Consultar("SELECT * FROM tblUsuario");
+            gvTeste.DataSource = f.retornarTabela("tblUsuario");
             gvTeste.DataBind();
         }
 
         protected void btnComando2_Click(object sender, EventArgs e)
         {
-            string codigoSql = @"";
 
-            Funcoes.Executar(codigoSql);
         }
     }
 }

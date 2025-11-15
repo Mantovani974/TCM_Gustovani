@@ -11,6 +11,7 @@ namespace PrjTcm.paginas
 {
     public partial class cliente : System.Web.UI.Page
     {
+        Funcoes  f = new Funcoes();
         protected void Page_Load(object sender, EventArgs e)
         {
             string codigoSql = @"
@@ -31,7 +32,7 @@ namespace PrjTcm.paginas
             FROM tblCliente AS cli
             INNER JOIN tblEndereco AS e ON e.id_endereco = cli.id_endereco";
 
-            gvCliente.DataSource = Funcoes.Consultar("SELECT * FROM tblUsuario");
+            gvCliente.DataSource = f.retornarTabela("tblUsuario");
             gvCliente.DataBind();
         } 
     }

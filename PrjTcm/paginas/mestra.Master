@@ -16,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -28,22 +29,46 @@
 
         <div class="menu-pc">
             <div>
-                <a href="pedido.aspx">Pedido</a>
+                <a href="pedido.aspx">
+                    <span>
+                        Pedidos
+                    </span>
+                </a>
             </div>
             <div>
-                <a href="produto.aspx">Produto</a>
+                <a href="produto.aspx">
+                    <span>
+                        Produtos
+                    </span>
+                </a>
             </div>
             <div>
-                <a href="cliente.aspx">Cliente</a>
+                <a href="cliente.aspx">
+                    <span>
+                        Clientes
+                    </span>
+                </a>
             </div>
             <div>
-                <a href="representante.aspx">Representante</a>
+                <a href="representante.aspx">
+                    <span>
+                        Representantes
+                    </span>
+                </a>
             </div>
             <div>
-                <a href="categoria.aspx">Categoria</a>
+                <a href="categoria.aspx">
+                    <span>
+                        Categorias
+                    </span>
+                </a>
             </div>
             <div>
-                <a href="usuario.aspx">Usuário</a>
+                <a href="usuario.aspx">
+                    <span>
+                        Usuários
+                    </span>
+                </a>
             </div>
         </div>
     </header>

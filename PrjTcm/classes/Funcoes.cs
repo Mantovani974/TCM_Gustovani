@@ -1,39 +1,90 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
+using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
 
 namespace PrjTcm
 {
-    public static class Funcoes
+    public class Funcoes
     {
-        private static string connStr = "Server=mysql-tcmmantogusta.alwaysdata.net;Database=tcmmantogusta_tcm;Uid=439374_gustavo_1;Pwd=Gugu0304@;";
-
-        // 🔹 Método genérico pra SELECT (retorna tabela)
-        public static DataTable Consultar(string sql)
+        MySqlConnection conexao = new MySqlConnection();
+        private MySqlConnection Conectar()
         {
-            using (MySqlConnection conn = new MySqlConnection(connStr))
+            try
             {
-                conn.Open();
-                using (MySqlDataAdapter da = new MySqlDataAdapter(sql, conn))
-                {
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    return dt;
-                }
+                string strConn = ConfigurationManager.ConnectionStrings["ConexaoRemota"].ConnectionString;
+                MySqlConnection conn = new MySqlConnection(strConn);
+                conn.Open(); 
+                return conn;
+            }
+            catch (Exception)
+            {
+                desconectar();
+                return null;
             }
         }
 
-        // 🔹 Método pra INSERT, UPDATE, DELETE (não retorna nada)
-        public static void Executar(string sql)
+        public void desconectar()
         {
-            using (MySqlConnection conn = new MySqlConnection(connStr))
+            try
             {
-                conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                if (conexao.State == ConnectionState.Open)
                 {
-                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+                    conexao.Dispose();
+                    conexao = null;
                 }
             }
+            catch (Exception) { }
+        }
+
+        public DataTable retornarTabela(string table)
+        {
+            var result = new DataTable();
+
+            if (string.IsNullOrWhiteSpace(table))
+                return result;
+
+            // Allow only basic identifier characters to avoid SQL injection via table name
+            if (!Regex.IsMatch(table, @"^[A-Za-z0-9_]+$"))
+                return result;
+
+            string sql = "SELECT * FROM `" + table + "`;";
+
+            MySqlConnection conn = null;
+            try
+            {
+                conn = Conectar();
+                if (conn == null)
+                    return result;
+                using (var  cmd = new MySqlCommand(sql, conn))
+                    using( var adapter = new MySqlDataAdapter(cmd)) {
+                    adapter.Fill(result);
+                    }
+                return result;
+            }catch (Exception)
+            {
+                return result;
+            }
+            finally
+            {
+                desconectar();
+            }
+
+        }
+
+        public DataTable exSQLParameters(MySqlCommand cmd)
+        {
+            DataTable  dt = new DataTable ();
+            try
+            {
+                cmd.Connection = Conectar();
+                MySqlDataReader dr = cmd.ExecuteReader();
+                dt.Load(dr);
+            }catch(Exception) { }
+            desconectar();
+            return dt;
         }
     }
 }
