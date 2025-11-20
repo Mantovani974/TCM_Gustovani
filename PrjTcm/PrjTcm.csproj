@@ -137,6 +137,7 @@
     <Content Include="paginas\MainLogin.aspx" />
     <Content Include="paginas\painel.aspx" />
     <Content Include="paginas\TestarBanco.aspx" />
+    <Content Include="paginas\usuario.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +186,13 @@
     </Compile>
     <Compile Include="paginas\TestarBanco.aspx.designer.cs">
       <DependentUpon>TestarBanco.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paginas\usuario.aspx.cs">
+      <DependentUpon>usuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\usuario.aspx.designer.cs">
+      <DependentUpon>usuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

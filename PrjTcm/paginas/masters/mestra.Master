@@ -24,7 +24,9 @@
 
     <header>
         <div class="logo">
+            <a href="../painel.aspx">
             <img src="../imgs/logo.png" alt="logo da empresa" draggable="false">
+            </a>
         </div>
 
         <div class="menu-pc">
