@@ -7,15 +7,16 @@ using System.Web.UI.WebControls;
 
 namespace PrjTcm.paginas
 {
-    public partial class usuario : System.Web.UI.Page
+    public partial class detalheUsuario : System.Web.UI.Page
     {
-        Funcoes funcoes = new Funcoes();
         protected void Page_Load(object sender, EventArgs e)
         {
-            gvUsuarios.DataSource = funcoes.retornarTabela("tblUsuario");
-            gvUsuarios.DataBind();
+
         }
 
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
