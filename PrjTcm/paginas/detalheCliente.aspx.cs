@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace PrjTcm.paginas.masters
+namespace PrjTcm.paginas
 {
-    public partial class detalhePedido : System.Web.UI.Page
+    public partial class detalheCliente : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

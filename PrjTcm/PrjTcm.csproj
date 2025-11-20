@@ -135,8 +135,8 @@
     <Content Include="imgs\painel\iconRepresentante.png" />
     <Content Include="imgs\painel\iconUser.png" />
     <Content Include="paginas\cliente.aspx" />
-    <Content Include="paginas\MainLogin.aspx" />
     <Content Include="paginas\detalheCliente.aspx" />
+    <Content Include="paginas\MainLogin.aspx" />
     <Content Include="paginas\painel.aspx" />
     <Content Include="paginas\TestarBanco.aspx" />
     <Content Include="paginas\usuario.aspx" />
@@ -153,6 +153,13 @@
     </Compile>
     <Compile Include="paginas\cliente.aspx.designer.cs">
       <DependentUpon>cliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paginas\detalheCliente.aspx.cs">
+      <DependentUpon>detalheCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\detalheCliente.aspx.designer.cs">
+      <DependentUpon>detalheCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="paginas\MainLogin.aspx.cs">
       <DependentUpon>MainLogin.aspx</DependentUpon>

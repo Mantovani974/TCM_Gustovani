@@ -7,11 +7,11 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace PrjTcm.paginas.masters
+namespace PrjTcm.paginas
 {
 
 
-    public partial class detalhePedido
+    public partial class detalheCliente
     {
 
         /// <summary>
