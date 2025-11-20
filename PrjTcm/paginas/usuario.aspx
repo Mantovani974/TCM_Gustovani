@@ -10,9 +10,6 @@
                 HeaderStyle-CssClass="cabecalho"
                 RowStyle-CssClass="linha"
                 AlternatingRowStyle-CssClass="linhaAlt">
-                <Columns>
-                    <asp:ButtonField Text="Selecionar"  CommandName="selecionar"/>
-                </Columns>
             </asp:GridView>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="botoesGrid" runat="server">
@@ -20,9 +17,6 @@
         Adicionar
     </button>
 
-    <button type="button"  class="btnEdit" onclick="window.location='clienteEdit.aspx?id=1'">
-        Editar
-    </button>
 
     <button type="button" class="btnInativar" onclick="window.location='clienteInativar.aspx'">
         Inativar

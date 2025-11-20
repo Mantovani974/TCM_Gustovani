@@ -16,27 +16,5 @@ namespace PrjTcm.paginas
             gvUsuarios.DataSource = funcoes.retornarTabela("tblUsuario");
             gvUsuarios.DataBind();
         }
-        protected void gvUsuarios_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "selecionar")
-            {
-                int index = Convert.ToInt32(e.CommandArgument);
-                int id = Convert.ToInt32(gvUsuarios.DataKeys[index].Value);
-
-                // envia para o Master
-                ((masterGrids)this.Master).idSelecionado = id;
-
-                // destaca a linha visualmente
-                gvUsuarios.SelectedIndex = index;
-            }
-        }
-        protected void gvUsuarios_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            foreach (GridViewRow row in gvUsuarios.Rows)
-                row.CssClass = "";
-
-            gvUsuarios.SelectedRow.CssClass = "linha-selecionada";
-        }
-
     }
 }
