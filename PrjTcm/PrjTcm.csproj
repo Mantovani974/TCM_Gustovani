@@ -121,6 +121,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\detalhe.css" />
     <Content Include="css\geral.css" />
     <Content Include="css\login.css" />
     <Content Include="css\painel.css" />
@@ -134,6 +135,7 @@
     <Content Include="imgs\painel\iconUser.png" />
     <Content Include="paginas\cliente.aspx" />
     <Content Include="paginas\MainLogin.aspx" />
+    <Content Include="paginas\detalheCliente.aspx" />
     <Content Include="paginas\painel.aspx" />
     <Content Include="paginas\TestarBanco.aspx" />
     <Content Include="Web.config" />
@@ -156,6 +158,13 @@
     </Compile>
     <Compile Include="paginas\MainLogin.aspx.designer.cs">
       <DependentUpon>MainLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paginas\detalheCliente.aspx.cs">
+      <DependentUpon>detalheCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\detalheCliente.aspx.designer.cs">
+      <DependentUpon>detalheCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="paginas\masters\mestra.Master.cs">
       <DependentUpon>mestra.Master</DependentUpon>
