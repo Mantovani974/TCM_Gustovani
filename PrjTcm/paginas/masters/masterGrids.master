@@ -1,0 +1,21 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/paginas/masters/mestra.Master" AutoEventWireup="true" CodeBehind="masterGrids.master.cs" Inherits="PrjTcm.paginas.masters.masterGrids" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" type="text/css" href="../../css/grids.css" />
+</asp:Content>
+<asp:Content ID="LayoutCrud" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container-crud">
+        
+        <h1 class="titulo-crud">
+            <asp:ContentPlaceHolder ID="tituloGrid" runat="server">
+            </asp:ContentPlaceHolder>
+        </h1>
+        <div class="area-grid">
+            <asp:ContentPlaceHolder ID="conteudoGrid" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="botoes-crud">
+            <asp:ContentPlaceHolder ID="botoesGrid" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>

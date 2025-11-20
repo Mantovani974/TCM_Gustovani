@@ -11,16 +11,16 @@ namespace PrjTcm.paginas
 {
 
 
-    public partial class cliente
+    public partial class usuario
     {
 
         /// <summary>
-        /// gvClientes control.
+        /// gvUsuarios control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvClientes;
+        protected global::System.Web.UI.WebControls.GridView gvUsuarios;
     }
 }

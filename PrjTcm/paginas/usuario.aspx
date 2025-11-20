@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/paginas/masters/masterGrids.master" AutoEventWireup="true" CodeBehind="cliente.aspx.cs" Inherits="PrjTcm.paginas.cliente" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/paginas/masters/masterGrids.master" AutoEventWireup="true" CodeBehind="usuario.aspx.cs" Inherits="PrjTcm.paginas.usuario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="tituloGrid" runat="server">
-    Clientes
+    Usuários
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="conteudoGrid" runat="server">
-            <asp:GridView ID="gvClientes" runat="server" 
-                AutoGenerateColumns="true"
+            <asp:GridView ID="gvUsuarios" runat="server" 
+               AutoGenerateColumns="true"
                 ShowHeaderWhenEmpty="true"
                 CssClass="tabela"
                 HeaderStyle-CssClass="cabecalho"

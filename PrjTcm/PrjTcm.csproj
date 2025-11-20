@@ -123,6 +123,7 @@
   <ItemGroup>
     <Content Include="css\detalhe.css" />
     <Content Include="css\geral.css" />
+    <Content Include="css\grids.css" />
     <Content Include="css\login.css" />
     <Content Include="css\painel.css" />
     <Content Include="Global.asax" />
@@ -138,6 +139,7 @@
     <Content Include="paginas\detalheCliente.aspx" />
     <Content Include="paginas\painel.aspx" />
     <Content Include="paginas\TestarBanco.aspx" />
+    <Content Include="paginas\usuario.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -159,12 +161,12 @@
     <Compile Include="paginas\MainLogin.aspx.designer.cs">
       <DependentUpon>MainLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="paginas\detalheCliente.aspx.cs">
-      <DependentUpon>detalheCliente.aspx</DependentUpon>
+    <Compile Include="paginas\masters\masterGrids.master.cs">
+      <DependentUpon>masterGrids.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="paginas\detalheCliente.aspx.designer.cs">
-      <DependentUpon>detalheCliente.aspx</DependentUpon>
+    <Compile Include="paginas\masters\masterGrids.master.designer.cs">
+      <DependentUpon>masterGrids.master</DependentUpon>
     </Compile>
     <Compile Include="paginas\masters\mestra.Master.cs">
       <DependentUpon>mestra.Master</DependentUpon>
@@ -187,11 +189,19 @@
     <Compile Include="paginas\TestarBanco.aspx.designer.cs">
       <DependentUpon>TestarBanco.aspx</DependentUpon>
     </Compile>
+    <Compile Include="paginas\usuario.aspx.cs">
+      <DependentUpon>usuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\usuario.aspx.designer.cs">
+      <DependentUpon>usuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="paginas\masters\mestra.Master" />
+    <Content Include="paginas\masters\masterGrids.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
