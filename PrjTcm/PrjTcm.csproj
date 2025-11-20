@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\geral.css" />
+    <Content Include="css\login.css" />
     <Content Include="css\painel.css" />
     <Content Include="Global.asax" />
     <Content Include="imgs\logo.png" />
@@ -132,6 +133,7 @@
     <Content Include="imgs\painel\iconRepresentante.png" />
     <Content Include="imgs\painel\iconUser.png" />
     <Content Include="paginas\cliente.aspx" />
+    <Content Include="paginas\MainLogin.aspx" />
     <Content Include="paginas\painel.aspx" />
     <Content Include="paginas\TestarBanco.aspx" />
     <Content Include="Web.config" />
@@ -148,11 +150,18 @@
     <Compile Include="paginas\cliente.aspx.designer.cs">
       <DependentUpon>cliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="paginas\mestra.Master.cs">
+    <Compile Include="paginas\MainLogin.aspx.cs">
+      <DependentUpon>MainLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\MainLogin.aspx.designer.cs">
+      <DependentUpon>MainLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paginas\masters\mestra.Master.cs">
       <DependentUpon>mestra.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="paginas\mestra.Master.designer.cs">
+    <Compile Include="paginas\masters\mestra.Master.designer.cs">
       <DependentUpon>mestra.Master</DependentUpon>
     </Compile>
     <Compile Include="paginas\painel.aspx.cs">
@@ -173,7 +182,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="paginas\mestra.Master" />
+    <Content Include="paginas\masters\mestra.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

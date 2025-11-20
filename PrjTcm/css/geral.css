@@ -19,12 +19,14 @@ header span{
     font-size:2vw;
 }
 .logo {
-    width: 20%;
+    width: 10vw;
     display: flex;
     align-items: center;
     margin-left: 5%;
 }
-
+.logo  img{
+    width:100%;
+}
 
 .menu-pc {
     display: flex;
