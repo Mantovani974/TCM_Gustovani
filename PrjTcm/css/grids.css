@@ -40,3 +40,7 @@
 .btnRestaurar {
     background-color: #CBFFC0;
 }
+
+.linha-selecionada {
+    background-color: #cce5ff !important;
+}
