@@ -134,6 +134,7 @@
     <Content Include="imgs\painel\iconProduto.png" />
     <Content Include="imgs\painel\iconRepresentante.png" />
     <Content Include="imgs\painel\iconUser.png" />
+    <Content Include="paginas\categoria.aspx" />
     <Content Include="paginas\cliente.aspx" />
     <Content Include="paginas\detalheCliente.aspx" />
     <Content Include="paginas\detalheUsuario.aspx" />
@@ -147,6 +148,13 @@
     <Compile Include="classes\Funcoes.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="paginas\categoria.aspx.cs">
+      <DependentUpon>categoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\categoria.aspx.designer.cs">
+      <DependentUpon>categoria.aspx</DependentUpon>
     </Compile>
     <Compile Include="paginas\cliente.aspx.cs">
       <DependentUpon>cliente.aspx</DependentUpon>
