@@ -10,6 +10,9 @@
                 HeaderStyle-CssClass="cabecalho"
                 RowStyle-CssClass="linha"
                 AlternatingRowStyle-CssClass="linhaAlt">
+                <Columns>
+                    <asp:ButtonField Text="Selecionar"  CommandName="selecionar"/>
+                </Columns>
             </asp:GridView>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="botoesGrid" runat="server">
