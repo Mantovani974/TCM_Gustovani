@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/paginas/mestra.Master" AutoEventWireup="true" CodeBehind="painel.aspx.cs" Inherits="PrjTcm.paginas.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/paginas/masters/mestra.Master" AutoEventWireup="true" CodeBehind="painel.aspx.cs" Inherits="PrjTcm.paginas.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="../css/painel.css">
 </asp:Content>

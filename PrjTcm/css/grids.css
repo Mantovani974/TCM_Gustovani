@@ -1,0 +1,42 @@
+﻿.container-crud {
+    width: 85%;
+    margin: 10vh auto;
+    background: #e5e5e5;
+    padding: 30px;
+    border-radius: 25px;
+}
+
+.titulo-crud {
+    font-family: 'Anton', sans-serif;
+    font-size: 2vw;
+    margin-bottom: 20px;
+}
+
+.area-grid {
+    margin-bottom: 30px;
+}
+
+.botoes-crud {
+    display: flex;
+    justify-content: center;
+}
+
+    .botoes-crud button {
+        width:10vw;
+        border-radius: 10px;
+        font-size: 1.5vw;
+        cursor: pointer;
+    }
+
+.btnAdd {
+    background-color: #C0D9FF;
+}
+.btnEdit {
+    background-color: #FFFFC0;
+}
+.btnInativar {
+    background-color: #FFC0C0;
+}
+.btnRestaurar {
+    background-color: #CBFFC0;
+}

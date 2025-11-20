@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\geral.css" />
+    <Content Include="css\grids.css" />
     <Content Include="css\login.css" />
     <Content Include="css\painel.css" />
     <Content Include="Global.asax" />
@@ -157,6 +158,13 @@
     <Compile Include="paginas\MainLogin.aspx.designer.cs">
       <DependentUpon>MainLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="paginas\masters\masterGrids.master.cs">
+      <DependentUpon>masterGrids.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\masters\masterGrids.master.designer.cs">
+      <DependentUpon>masterGrids.master</DependentUpon>
+    </Compile>
     <Compile Include="paginas\masters\mestra.Master.cs">
       <DependentUpon>mestra.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -183,6 +191,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="paginas\masters\mestra.Master" />
+    <Content Include="paginas\masters\masterGrids.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
