@@ -10,7 +10,7 @@ namespace PrjTcm.paginas
 {
     public partial class detalheUsuario : System.Web.UI.Page
     {
-        static char mode = null;
+        static char mode = 'A';
         Funcoes f = new Funcoes();
         protected void Page_Load(object sender, EventArgs e)
         {

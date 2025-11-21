@@ -29,7 +29,7 @@ namespace PrjTcm.paginas
 
         protected void btnAdd_Click1(object sender, EventArgs e)
         {
-            Response.Redirect("detalheCategoria.aspx");
+            Response.Redirect("detalheCategoria.aspx?id=0");
         }
 
         protected void gvCategorias_RowDataBound(object sender, GridViewRowEventArgs e)
