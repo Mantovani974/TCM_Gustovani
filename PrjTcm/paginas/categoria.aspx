@@ -9,13 +9,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="conteudoGrid" runat="server">
 
     <div class="grid-area-fixa">
-        <asp:GridView ID="gvCategorias" runat="server" 
+        <asp:GridView ID="gvCategorias" runat="server"
             AutoGenerateColumns="true"
             ShowHeaderWhenEmpty="true"
             CssClass="tabela"
             HeaderStyle-CssClass="cabecalho"
             RowStyle-CssClass="linha"
-            AlternatingRowStyle-CssClass="linhaAlt">
+            AlternatingRowStyle-CssClass="linhaAlt"
+            AutoGenerateSelectButton="True"
+            OnRowDataBound="gvCategorias_RowDataBound">
         </asp:GridView>
     </div>
 
@@ -25,7 +27,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="botoesGrid" runat="server">
 
     <asp:Button ID="btnAdd" CssClass="btnAdd" runat="server" Text="Adicionar" OnClick="btnAdd_Click1" />
-    <asp:Button ID="btnEdit" CssClass="btnEdit" runat="server" Text="Editar" />
+    <asp:Button ID="btnEdit" CssClass="btnEdit" runat="server" Text="Editar" OnClick="btnEdit_Click1"/>
     <asp:Button ID="btnInativar" CssClass="btnInativar" runat="server" Text="Inativar" />
     <asp:Button ID="btnRestaurar" CssClass="btnRestaurar" runat="server" Text="Restaurar" />
 

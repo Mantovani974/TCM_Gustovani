@@ -15,7 +15,6 @@ namespace PrjTcm.paginas
         {
 
         }
-
         protected void btnCofirmar_Click(object sender, EventArgs e)
         {
             MySqlCommand cmd = new MySqlCommand("sp_InserirCategoria");
@@ -25,9 +24,19 @@ namespace PrjTcm.paginas
             cmd.Parameters.AddWithValue("@pDescricao", txtDescricaoCategoria.Text);
 
             Funcoes f = new Funcoes();
-            f.exSQLParameters(cmd);
+            DataTable dt = f.exSQLParameters(cmd);
 
-            Response.Redirect("categoria.aspx"); 
+            // pega o retorno da procedure
+            string retorno = dt.Rows[0]["Resultado"].ToString();
+
+            if (retorno == "EXISTE")
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "msg", "alert('Categoria ja existente!');", true);
+                return; // não redireciona
+            }
+
+            // se chegou aqui, tudo certo → inserir OK
+            Response.Redirect("categoria.aspx");
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)

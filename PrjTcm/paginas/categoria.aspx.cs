@@ -31,5 +31,23 @@ namespace PrjTcm.paginas
         {
             Response.Redirect("detalheCategoria.aspx");
         }
+
+        protected void gvCategorias_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["style"] = "cursor:pointer";
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvCategorias, "Select$" + e.Row.RowIndex);
+            }
+        }
+
+
+
+        protected void btnEdit_Click1(object sender, EventArgs e)
+        {
+            string id = gvCategorias.SelectedRow.Cells[1].Text;
+            Response.Redirect("detalheCategoria.aspx?id=" + id);
+
+        }
     }
 }
