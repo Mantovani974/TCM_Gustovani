@@ -21,8 +21,10 @@ namespace PrjTcm.paginas
         {
             string id = Request.QueryString["id"];
             if (string.IsNullOrEmpty(id))
+            {
                 mode = 'N';
                 return;
+            }
             string[] dados = f.ExecutarProcedureRetornarArray(
                 "sp_RetornarUsuarioPeloId",
                 new MySqlParameter("@pId", int.Parse(id))
@@ -41,10 +43,14 @@ namespace PrjTcm.paginas
         {
             if(mode == 'N')
             {
-                /*Procedure para criar novo usuario*/
+                Response.Redirect("painel.aspx");
             }else if(mode == 'E')
             {
                 /*Procedure para  editar usuario*/
+            }
+            else
+            {
+                Response.Redirect("usuario.aspx");
             }
         }
     }

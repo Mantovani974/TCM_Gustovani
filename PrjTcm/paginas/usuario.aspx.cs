@@ -29,6 +29,9 @@ namespace PrjTcm.paginas
             Funcoes f = new Funcoes();
             gvUsuarios.DataSource = f.exSQLParameters(cmd);
             gvUsuarios.DataBind();
+            btnEditar.Enabled = false;
+            btnInativar.Enabled = false;
+            btnRastaurar.Enabled = false;
         }
 
         protected void btnAdicionar_Click(object sender, EventArgs e)
@@ -44,11 +47,29 @@ namespace PrjTcm.paginas
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvUsuarios, "Select$" + e.Row.RowIndex);
             }
         }
+        protected void gvUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnEditar.Enabled = true;
+            btnInativar.Enabled= true;
+            btnRastaurar.Enabled= true;
+        }
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             string id = gvUsuarios.SelectedRow.Cells[1].Text;
             Response.Redirect("detalheUsuario.aspx?id=" + id);
+        }
+
+        protected void btnRastaurar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnInativar_Click(object sender, EventArgs e)
+        {
+            string id = gvUsuarios.SelectedRow.Cells[1].Text;
+            MySqlCommand cmd = new MySqlCommand("CALL sp_InativarUsuario(" + id + ")");
+            funcoes.exSQLParameters(cmd);
         }
     }
 }
