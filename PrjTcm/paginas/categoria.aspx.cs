@@ -17,11 +17,6 @@ namespace PrjTcm.paginas
                 CarregarCategorias();
         }
 
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("detalheCategoria.aspx");
-        }
-
         private void CarregarCategorias()
         {
             MySqlCommand cmd = new MySqlCommand("sp_ListarCategorias");
@@ -30,6 +25,11 @@ namespace PrjTcm.paginas
             Funcoes f = new Funcoes();
             gvCategorias.DataSource = f.exSQLParameters(cmd);
             gvCategorias.DataBind();
+        }
+
+        protected void btnAdd_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("detalheCategoria.aspx");
         }
     }
 }
