@@ -17,29 +17,38 @@ namespace PrjTcm.paginas
         {
             if (!IsPostBack)
             {
-                MySqlCommand cmd = new MySqlCommand("sp_ListarUsuarios");
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                gvUsuarios.DataSource = funcoes.exSQLParameters(cmd);
-                gvUsuarios.DataBind();
+                CarregarUsuarios();
             }
+        }
+
+        private void CarregarUsuarios()
+        {
+            MySqlCommand cmd = new MySqlCommand("sp_ListarUsuarios");
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            Funcoes f = new Funcoes();
+            gvUsuarios.DataSource = f.exSQLParameters(cmd);
+            gvUsuarios.DataBind();
         }
 
         protected void btnAdicionar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("painel.aspx");
+            Response.Redirect("detalheUsuario.aspx")
         }
 
         protected void gvUsuarios_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["style"] = "cursor:pointer";
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvUsuarios, "Select$" + e.Row.RowIndex);
+            }
         }
 
-        protected void gvUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        protected void btnEditar_Click(object sender, EventArgs e)
         {
-
+            string id = gvUsuarios.SelectedRow.Cells[1].Text;
+            Response.Redirect("detalheUsuario.aspx?id=" + id);
         }
-
-
     }
 }

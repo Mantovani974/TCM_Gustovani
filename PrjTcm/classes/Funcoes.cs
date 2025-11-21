@@ -1,8 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Text.RegularExpressions;
-using MySql.Data.MySqlClient;
 
 namespace PrjTcm
 {
@@ -14,9 +15,9 @@ namespace PrjTcm
             try
             {
                 string strConn = ConfigurationManager.ConnectionStrings["ConexaoRemota"].ConnectionString;
-                MySqlConnection conn = new MySqlConnection(strConn);
-                conn.Open(); 
-                return conn;
+                conexao = new MySqlConnection(strConn);
+                conexao.Open(); 
+                return conexao;
             }
             catch (Exception)
             {
@@ -86,5 +87,33 @@ namespace PrjTcm
             desconectar();
             return dt;
         }
+
+        public string[] ExecutarProcedureRetornarArray(string nomeProcedure, params MySqlParameter[] parametros)
+        {
+            List<string> dados = new List<string>();
+
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand(nomeProcedure))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    foreach (var p in parametros)
+                        cmd.Parameters.Add(p);
+
+                    DataTable dt = exSQLParameters(cmd);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        foreach (var item in dt.Rows[0].ItemArray)
+                            dados.Add(item.ToString());
+                    }
+                }
+            }
+            catch { }
+
+            return dados.ToArray();
+        }
+
     }
 }

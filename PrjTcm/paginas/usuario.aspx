@@ -3,23 +3,22 @@
     Usuários
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="conteudoGrid" runat="server">
-            <asp:GridView ID="gvUsuarios" runat="server" 
-               AutoGenerateColumns="true"
+            <asp:GridView ID="gvUsuarios" runat="server"
+                AutoGenerateColumns="true"
                 ShowHeaderWhenEmpty="true"
                 CssClass="tabela"
                 HeaderStyle-CssClass="cabecalho"
                 RowStyle-CssClass="linha"
                 AlternatingRowStyle-CssClass="linhaAlt"
-                OnRowDataBound="gvUsuarios_RowDataBound"
-                OnSelectedIndexChanged="gvUsuarios_SelectedIndexChanged"
-                >
+                AutoGenerateSelectButton="True"
+                OnRowDataBound="gvUsuarios_RowDataBound">
             </asp:GridView>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="botoesGrid" runat="server">
 
     <asp:Button ID="btnAdicionar" runat="server" Text="Adicionar" CssClass="btnAdd" OnClick="btnAdicionar_Click" />
 
-    <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btnEdit" />
+    <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btnEdit" OnClick="btnEditar_Click" />
 
     <asp:Button ID="btnRastaurar" runat="server" Text="Restaurar" CssClass="btnRestaurar" />
 

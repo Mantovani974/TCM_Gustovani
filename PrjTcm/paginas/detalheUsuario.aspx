@@ -24,7 +24,7 @@
             </div>
 
             <div class="botoes-painel">
-                <asp:Button ID="btnConfirmar" CssClass="confirmar" runat="server" Text="Confirmar" />
+                <asp:Button ID="btnConfirmar" CssClass="confirmar" runat="server" Text="Confirmar" OnClick="btnConfirmar_Click" />
                 <asp:Button ID="btnCancelar" CssClass="cancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
             </div>
     </div>
