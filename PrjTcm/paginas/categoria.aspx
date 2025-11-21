@@ -7,6 +7,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="conteudoGrid" runat="server">
+
     <asp:GridView ID="gvCategorias" runat="server" 
         AutoGenerateColumns="true"
         ShowHeaderWhenEmpty="true"
@@ -15,23 +16,16 @@
         RowStyle-CssClass="linha"
         AlternatingRowStyle-CssClass="linhaAlt">
     </asp:GridView>
+
 </asp:Content>
 
 
 <asp:Content ID="Content3" ContentPlaceHolderID="botoesGrid" runat="server">
 
-    <button type="button" class="btnAdd" onclick="window.location='clienteAdd.aspx'">
-        Adicionar
-    </button>
-
-
-    <button type="button" class="btnInativar" onclick="window.location='clienteInativar.aspx'">
-        Inativar
-    </button>
-
-    <button type="button"  class="btnRestaurar" onclick="window.location='clienteRestaura.aspx'">
-        Restaurar
-    </button>
+    <asp:Button ID="btnAdd" CssClass="btnAdd" runat="server" Text="Adicionar" />
+    <asp:Button ID="btnEdit" CssClass="btnEdit" runat="server" Text="Editar" />
+    <asp:Button ID="btnInativar" CssClass="btnInativar" runat="server" Text="Inativar" />
+    <asp:Button ID="btnRestaurar" CssClass="btnRestaurar" runat="server" Text="Restaurar" />
 
 </asp:Content>
 

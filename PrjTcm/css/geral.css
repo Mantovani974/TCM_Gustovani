@@ -1,5 +1,7 @@
 ﻿* {
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
 }
 h1, h2, a, p, span,  button,input {
     font-family: "Jockey One", sans-serif;

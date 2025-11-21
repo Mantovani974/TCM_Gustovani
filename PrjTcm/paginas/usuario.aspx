@@ -16,12 +16,12 @@
     <button type="button" class="btnAdd" onclick="window.location='clienteAdd.aspx'">
         Adicionar
     </button>
-
-
+    <button type="button" class="btnEdit" onclick="window.location='clienteEdit.aspx'">
+        Editar
+    </button>
     <button type="button" class="btnInativar" onclick="window.location='clienteInativar.aspx'">
         Inativar
     </button>
-
     <button type="button"  class="btnRestaurar" onclick="window.location='clienteRestaura.aspx'">
         Restaurar
     </button>

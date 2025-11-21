@@ -11,52 +11,43 @@ namespace PrjTcm.paginas
 {
 
 
-    public partial class categoria
+    public partial class detalheCategoria
     {
 
         /// <summary>
-        /// Controle gvCategorias.
+        /// Controle txtNomeCategoria.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCategorias;
+        protected global::System.Web.UI.WebControls.TextBox txtNomeCategoria;
 
         /// <summary>
-        /// Controle btnAdd.
+        /// Controle txtDescricaoCategoria.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
+        protected global::System.Web.UI.WebControls.TextBox txtDescricaoCategoria;
 
         /// <summary>
-        /// Controle btnEdit.
+        /// Controle btnCofirmar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEdit;
+        protected global::System.Web.UI.WebControls.Button btnCofirmar;
 
         /// <summary>
-        /// Controle btnInativar.
+        /// Controle btnCancelar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnInativar;
-
-        /// <summary>
-        /// Controle btnRestaurar.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRestaurar;
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
     }
 }
