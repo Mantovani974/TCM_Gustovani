@@ -115,5 +115,25 @@ namespace PrjTcm
             return dados.ToArray();
         }
 
+        public string RetornoProcedureSimples(string nomeProcedure, params MySqlParameter[] parametros)
+        {
+            string retorno = string.Empty;
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand(nomeProcedure))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    foreach (var p in parametros)
+                        cmd.Parameters.Add(p);
+                    DataTable dt = exSQLParameters(cmd);
+                    if (dt.Rows.Count > 0)
+                    {
+                        retorno = dt.Rows[0][0].ToString();
+                    }
+                }
+            }
+            catch { }
+            return retorno;
+        }
     }
 }

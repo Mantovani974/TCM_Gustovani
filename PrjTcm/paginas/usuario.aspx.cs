@@ -25,9 +25,7 @@ namespace PrjTcm.paginas
         {
             MySqlCommand cmd = new MySqlCommand("sp_ListarUsuarios");
             cmd.CommandType = CommandType.StoredProcedure;
-
-            Funcoes f = new Funcoes();
-            gvUsuarios.DataSource = f.exSQLParameters(cmd);
+            gvUsuarios.DataSource = funcoes.exSQLParameters(cmd);
             gvUsuarios.DataBind();
             btnEditar.Enabled = false;
             btnInativar.Enabled = false;
@@ -62,14 +60,24 @@ namespace PrjTcm.paginas
 
         protected void btnRestaurar_Click(object sender, EventArgs e)
         {
-
+            string id = gvUsuarios.SelectedRow.Cells[1].Text;
+            MySqlParameter[] parametros = new MySqlParameter[] {
+                new MySqlParameter("pId",id)
+            };
+            string msg = funcoes.RetornoProcedureSimples("sp_AtivarUsuario",parametros);
+            ScriptManager.RegisterStartupScript(this,GetType(),"msg", $"alert('{msg}');",true);
+            CarregarUsuarios();
         }
 
         protected void btnInativar_Click(object sender, EventArgs e)
         {
             string id = gvUsuarios.SelectedRow.Cells[1].Text;
-            MySqlCommand cmd = new MySqlCommand("CALL sp_InativarUsuario(" + id + ")");
-            funcoes.exSQLParameters(cmd);
+            MySqlParameter[] parametros = {
+                new MySqlParameter("@pId", id)
+            };
+            string  msg =  funcoes.RetornoProcedureSimples("sp_InativarUsuario", parametros);
+            ScriptManager.RegisterStartupScript(this, GetType(), "msg", $"alert('{msg}');", true);
+            CarregarUsuarios();
         }
     }
 }

@@ -12,8 +12,8 @@
             
             <div class="campos-painel">
                 <div class="coluna">
-                    <div class="campo"><h2>Nome:</h2><asp:TextBox ID="txtNomeUsuario" runat="server"></asp:TextBox></div>
-                    <div class="campo"><h2>Senha:</h2><asp:TextBox ID="txtSenhaUsuario" runat="server"></asp:TextBox></div>
+                    <div class="campo"><h2>Nome:</h2><asp:TextBox ID="txtNomeUsuario" runat="server" MaxLength="50"></asp:TextBox></div>
+                    <div class="campo"><h2>Senha:</h2><asp:TextBox ID="txtSenhaUsuario" runat="server" MaxLength="10"></asp:TextBox></div>
                 </div>
                 <div class="coluna">
 
