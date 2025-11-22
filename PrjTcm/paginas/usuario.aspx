@@ -21,7 +21,7 @@
 
     <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btnEdit" OnClick="btnEditar_Click" />
 
-    <asp:Button ID="btnRastaurar" runat="server" Text="Restaurar" CssClass="btnRestaurar" OnClick="btnRastaurar_Click" />
+    <asp:Button ID="btnRestaurar" runat="server" Text="Restaurar" CssClass="btnRestaurar" OnClick="btnRestaurar_Click" />
 
     <asp:Button ID="btnInativar" runat="server" Text="Inativar" CssClass="btnInativar" OnClick="btnInativar_Click" />
 </asp:Content>

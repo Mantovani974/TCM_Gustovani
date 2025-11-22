@@ -31,7 +31,7 @@ namespace PrjTcm.paginas
             gvUsuarios.DataBind();
             btnEditar.Enabled = false;
             btnInativar.Enabled = false;
-            btnRastaurar.Enabled = false;
+            btnRestaurar.Enabled = false;
         }
 
         protected void btnAdicionar_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace PrjTcm.paginas
         {
             btnEditar.Enabled = true;
             btnInativar.Enabled= true;
-            btnRastaurar.Enabled= true;
+            btnRestaurar.Enabled= true;
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace PrjTcm.paginas
             Response.Redirect("detalheUsuario.aspx?id=" + id);
         }
 
-        protected void btnRastaurar_Click(object sender, EventArgs e)
+        protected void btnRestaurar_Click(object sender, EventArgs e)
         {
 
         }
