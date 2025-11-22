@@ -11,10 +11,19 @@ namespace PrjTcm.paginas
 {
     public partial class detalheCategoria : System.Web.UI.Page
     {
+        private static string id;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            id = Request.QueryString["id"];
+            if (id == "0")
+            {
+                return;
+            }
+            Response.Write("ID resgatado: " + id);
+            carregarDadosCategoria();
         }
+
         protected void btnCofirmar_Click(object sender, EventArgs e)
         {
             MySqlCommand cmd = new MySqlCommand("sp_InserirCategoria");
@@ -42,6 +51,32 @@ namespace PrjTcm.paginas
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("categoria.aspx");
+        }
+
+        protected void carregarDadosCategoria()
+        {
+            MySqlCommand cmd = new MySqlCommand("sp_RetornarCategoriaPeloId");
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@pId", id);
+
+            Funcoes f = new Funcoes();
+            DataTable dt = f.exSQLParameters(cmd);
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+
+                string[] dados = row.ItemArray
+                    .Select(c => c.ToString())
+                    .ToArray();
+
+                txtNomeCategoria.Text = dados[1];
+                txtDescricaoCategoria.Text = dados[2];
+                    
+            }
+
+
         }
     }
 }
