@@ -17,7 +17,8 @@
             RowStyle-CssClass="linha"
             AlternatingRowStyle-CssClass="linhaAlt"
             AutoGenerateSelectButton="True"
-            OnRowDataBound="gvCategorias_RowDataBound">
+            OnRowDataBound="gvCategorias_RowDataBound"
+            OnSelectedIndexChanged="gvCategorias_SelectedIndexChanged">
         </asp:GridView>
     </div>
 
@@ -26,10 +27,10 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="botoesGrid" runat="server">
 
-    <asp:Button ID="btnAdd" CssClass="btnAdd" runat="server" Text="Adicionar" OnClick="btnAdd_Click1" />
-    <asp:Button ID="btnEdit" CssClass="btnEdit" runat="server" Text="Editar" OnClick="btnEdit_Click1"/>
-    <asp:Button ID="btnInativar" CssClass="btnInativar" runat="server" Text="Inativar" />
-    <asp:Button ID="btnRestaurar" CssClass="btnRestaurar" runat="server" Text="Restaurar" />
+    <asp:Button ID="btnAdicionar" CssClass="btnAdd" runat="server" Text="Adicionar" OnClick="btnAdicionar_Click" />
+    <asp:Button ID="btnEditar" CssClass="btnEdit" runat="server" Text="Editar" OnClick="btnEditar_Click"/>
+    <asp:Button ID="btnRestaurar" CssClass="btnRestaurar" runat="server" Text="Restaurar" OnClick="btnRestaurar_Click" />
+    <asp:Button ID="btnInativar" CssClass="btnInativar" runat="server" Text="Inativar" OnClick="btnInativar_Click" />
 
 </asp:Content>
 

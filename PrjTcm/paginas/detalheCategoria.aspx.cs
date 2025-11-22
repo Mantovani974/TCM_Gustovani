@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,41 +12,83 @@ namespace PrjTcm.paginas
 {
     public partial class detalheCategoria : System.Web.UI.Page
     {
-        private static string id;
+        char mode;
+        string idCategoria;
+        Funcoes f = new Funcoes();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            id = Request.QueryString["id"];
-            if (id == "0")
+            idCategoria = Request.QueryString["id"];
+            if (idCategoria == "0")
             {
+                mode = 'A'; // A de adicionar
+                //txtNomeCategoria.Text = "";
+                //txtDescricaoCategoria.Text = "";
+            }
+            else
+            {
+                mode = 'E'; // E de editar
+                if (!IsPostBack) // só faz na primeira vez que carrega ao inves de sempre que clica
+                {
+                    CarregarCategoria();
+                }
+            }
+        }
+
+        protected void CarregarCategoria()
+        {
+            string[] dados = f.ExecutarProcedureRetornarArray(
+                "sp_RetornarCategoriaPeloId",
+                new MySqlParameter("@pId", int.Parse(idCategoria))
+            );
+
+            if (dados.Length < 3)
+            {
+                Response.Write("Categoria não encontrada!");
                 return;
             }
-            Response.Write("ID resgatado: " + id);
-            carregarDadosCategoria();
+
+            txtNomeCategoria.Text = dados[1];
+            txtDescricaoCategoria.Text = dados[2];
         }
+    
+
 
         protected void btnCofirmar_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmd = new MySqlCommand("sp_InserirCategoria");
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.AddWithValue("@pNome", txtNomeCategoria.Text);
-            cmd.Parameters.AddWithValue("@pDescricao", txtDescricaoCategoria.Text);
-
-            Funcoes f = new Funcoes();
-            DataTable dt = f.exSQLParameters(cmd);
-
-            // pega o retorno da procedure
-            string retorno = dt.Rows[0]["Resultado"].ToString();
-
-            if (retorno == "EXISTE")
+            if (mode == 'A') // Procedure para adicionar categoria
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "msg", "alert('Categoria ja existente!');", true);
-                return; // não redireciona
+                // Pega valores dos campos
+                string nome = txtNomeCategoria.Text.Trim();
+                string descricao = txtDescricaoCategoria.Text.Trim();
+
+                string resultado = f.RetornoProcedureSimples(
+                    "sp_InserirCategoria",
+                    new MySqlParameter("@pNome", nome),
+                    new MySqlParameter("@pDescricao", descricao)
+                );
+
+                string script = $"alert('{resultado}'); window.location='categoria.aspx';";
+                ScriptManager.RegisterStartupScript(this, GetType(), "msg", script, true);
             }
 
-            // se chegou aqui, tudo certo → inserir OK
-            Response.Redirect("categoria.aspx");
+            else if (mode == 'E')
+            {
+                // Pega valores dos campos
+                int id = int.Parse(idCategoria);
+                string nome = txtNomeCategoria.Text.Trim();
+                string descricao = txtDescricaoCategoria.Text.Trim();
+
+                string resultado = f.RetornoProcedureSimples(
+                    "sp_EditarCategoria",
+                    new MySqlParameter("@pId", id),
+                    new MySqlParameter("@pNome", nome),
+                    new MySqlParameter("@pDescricao", descricao)
+                );
+
+                string script = $"alert('{resultado}'); window.location='categoria.aspx';";
+                ScriptManager.RegisterStartupScript(this, GetType(), "msg", script, true);
+            }
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -53,30 +96,5 @@ namespace PrjTcm.paginas
             Response.Redirect("categoria.aspx");
         }
 
-        protected void carregarDadosCategoria()
-        {
-            MySqlCommand cmd = new MySqlCommand("sp_RetornarCategoriaPeloId");
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.AddWithValue("@pId", id);
-
-            Funcoes f = new Funcoes();
-            DataTable dt = f.exSQLParameters(cmd);
-
-            if (dt.Rows.Count > 0)
-            {
-                DataRow row = dt.Rows[0];
-
-                string[] dados = row.ItemArray
-                    .Select(c => c.ToString())
-                    .ToArray();
-
-                txtNomeCategoria.Text = dados[1];
-                txtDescricaoCategoria.Text = dados[2];
-                    
-            }
-
-
-        }
     }
 }

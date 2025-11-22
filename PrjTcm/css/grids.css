@@ -41,6 +41,65 @@
     background-color: #CBFFC0;
 }
 
-.linha-selecionada {
-    background-color: #cce5ff !important;
+
+/* Oculta o botão Select (primeira coluna do GridView) */
+#gvCategorias td:first-child,
+#gvCategorias th:first-child {
+    display: none;
 }
+
+
+
+
+
+/*confirgurações que estavam no geral.css*/
+
+
+.tabela {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+}
+
+    .tabela th, .tabela td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .tabela th {
+        background-color: royalblue;
+        color: white;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .tabela tbody tr.linha {
+        background-color: #f8f8f8;
+    }
+
+    .tabela tbody tr.linhaAlt {
+        background-color: #e9ecf2;
+    }
+
+    .tabela tbody tr.linha-selecionada {
+        background-color: #fff6c7;
+        border: solid 3px #ffd84d;
+    }
+
+    .tabela tbody tr:hover {
+        background-color: #d6e4ff;
+    }
+
+    .tabela tbody tr.linha-selecionada:hover {
+        background-color: #ffe870;
+        border: solid 3px #facf34;
+    }
+
+    /* Para quando não há linhas */
+    .tabela tbody:empty::before {
+        content: "Nenhum registro encontrado";
+        display: table-row;
+        color: #555;
+    }
