@@ -23,7 +23,6 @@ namespace PrjTcm.paginas
         {
             MySqlCommand cmd = new MySqlCommand("sp_ListarClientes");
             cmd.CommandType = CommandType.StoredProcedure;
-
             gvClientes.DataSource = funcoes.exSQLParameters(cmd);
             gvClientes.DataBind();
             btnEditar.Enabled = false;

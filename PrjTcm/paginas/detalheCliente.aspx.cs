@@ -33,21 +33,22 @@ namespace PrjTcm.paginas
 
         protected void CarregarCliente()
         {
-            string[] dados = f.ExecutarProcedureRetornarArray(
-                "sp_RetornarClientePeloId",
-                new MySqlParameter("@pId", int.Parse(idCliente))
-            );
+            MySqlParameter[] parametros = new MySqlParameter[]
+            {
+                new MySqlParameter("pId",idCliente)
+            };
+            string[] dados = f.ExecutarProcedureRetornarArray("sp_RetornarClientePeloId",parametros);
 
-            txtNomeCliente.Text = dados[1];
-            txtCnpjCliente.Text = dados[2];
-            txtEmailCliente.Text = dados[3];
-            txtCelularCliente.Text = dados[4];
-            txtLogradouroCliente.Text = dados[7];
-            txtNumeroCliente.Text = dados[8];
-            txtBairroCliente.Text = dados[9];
-            txtCidadeCliente.Text = dados[10];
-            txtUfCliente.Text = dados[11];
-            txtCepCliente.Text = dados[12];
+            txtNomeCliente.Text = dados[0];
+            txtCnpjCliente.Text = dados[1];
+            txtEmailCliente.Text = dados[2];
+            txtCelularCliente.Text = dados[3];
+            txtLogradouroCliente.Text = dados[4];
+            txtNumeroCliente.Text = dados[5];
+            txtBairroCliente.Text = dados[6];
+            txtCidadeCliente.Text = dados[7];
+            txtUfCliente.Text = dados[8];
+            txtCepCliente.Text = dados[9];
 
         }
 
@@ -55,71 +56,69 @@ namespace PrjTcm.paginas
 
         protected void btnCofirmar_Click(object sender, EventArgs e)
         {
+            // Pega valores dos campos
+            string nome = txtNomeCliente.Text?.Trim();
+            string cnpj = txtCnpjCliente.Text?.Trim();
+            string email = txtEmailCliente.Text?.Trim();
+            string celular = txtCelularCliente.Text?.Trim();
+            string logradouro = txtLogradouroCliente.Text?.Trim();
+            string numero = txtNumeroCliente.Text?.Trim();
+            string cidade = txtCidadeCliente.Text?.Trim();
+            string bairro = txtBairroCliente.Text?.Trim();
+            string uf = txtUfCliente.Text?.Trim();
+            string cep = txtCepCliente.Text?.Trim();
+
+            // Impedir strings vazias
+            if (string.IsNullOrWhiteSpace(nome) || string.IsNullOrWhiteSpace(cnpj) || string.IsNullOrWhiteSpace(email) ||  string.IsNullOrWhiteSpace(celular) || string.IsNullOrWhiteSpace(logradouro) || string.IsNullOrWhiteSpace(numero) || string.IsNullOrWhiteSpace(bairro) || string.IsNullOrWhiteSpace(uf) || string.IsNullOrWhiteSpace(cep))
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "msg", "alert('Há campos obrigatorios não preenchidos')", true);
+                return;
+            }
+            //Msg resultado
+            string msg = "erro";
+            string script;
             if (mode == 'A') // Procedure para adicionar cliente
             {
-                // Pega valores dos campos
-                string nome = txtNomeCliente.Text.Trim();
-                string cnpj = txtCnpjCliente.Text.Trim();
-                string email = txtEmailCliente.Text.Trim();
-                string celular = txtCelularCliente.Text.Trim();
-                string logradouro = txtLogradouroCliente.Text.Trim();
-                int numero = int.Parse(txtNumeroCliente.Text.Trim());
-                string cidade = txtCidadeCliente.Text.Trim();
-                string bairro = txtBairroCliente.Text.Trim();
-                string uf = txtUfCliente.Text.Trim();
-                string cep = txtCepCliente.Text.Trim();
-
-                string resultado = f.RetornoProcedureSimples(
-                    "sp_InserirCliente",
-                    new MySqlParameter("@pNome", nome),
-                    new MySqlParameter("@pCnpj", cnpj),
-                    new MySqlParameter("@pEmail", email),
-                    new MySqlParameter("@pCelular", celular),
-                    new MySqlParameter("@pLogradouro", logradouro),
-                    new MySqlParameter("@pNumero", numero),
-                    new MySqlParameter("@pCidade", cidade),
-                    new MySqlParameter("@pBairro", bairro),
-                    new MySqlParameter("@pUf", uf),
-                    new MySqlParameter("@pCep", cep)
-                );
-
-                string script = $"alert('{resultado}'); window.location='cliente.aspx';";
-                ScriptManager.RegisterStartupScript(this, GetType(), "msg", script, true);
+                MySqlParameter[] parametros = new MySqlParameter[]
+                {
+                    new MySqlParameter("pNome",nome),
+                    new MySqlParameter("pCnpj",cnpj),
+                    new MySqlParameter("pEmail",email),
+                    new MySqlParameter("pCelular",celular),
+                    new MySqlParameter("pLogradouro",logradouro),
+                    new MySqlParameter("pNumero",numero),
+                    new MySqlParameter("pCidade",cidade),
+                    new MySqlParameter("pBairro",bairro),
+                    new MySqlParameter("pUf",uf),
+                    new MySqlParameter("pCep",cep)
+                };
+                msg = f.RetornoProcedureSimples("sp_InserirCliente", parametros);
             }
 
             else if (mode == 'E')
             {
-                // Pega valores dos campos
-                int id = int.Parse(idCliente);
-                string nome = txtNomeCliente.Text.Trim();
-                string cnpj = txtCnpjCliente.Text.Trim();
-                string email = txtEmailCliente.Text.Trim();
-                string celular = txtCelularCliente.Text.Trim();
-                string logradouro = txtLogradouroCliente.Text.Trim();
-                int numero = int.Parse(txtNumeroCliente.Text.Trim());
-                string cidade = txtCidadeCliente.Text.Trim();
-                string bairro = txtBairroCliente.Text.Trim();
-                string uf = txtUfCliente.Text.Trim();
-                string cep = txtCepCliente.Text.Trim();
-
-                string resultado = f.RetornoProcedureSimples(
-                    "sp_EditarCliente",
-                    new MySqlParameter("@pId", id),
-                    new MySqlParameter("@pNome", nome),
-                    new MySqlParameter("@pCnpj", cnpj),
-                    new MySqlParameter("@pEmail", email),
-                    new MySqlParameter("@pCelular", celular),
-                    new MySqlParameter("@pLogradouro", logradouro),
-                    new MySqlParameter("@pNumero", numero),
-                    new MySqlParameter("@pCidade", cidade),
-                    new MySqlParameter("@pBairro", bairro),
-                    new MySqlParameter("@pUf", uf),
-                    new MySqlParameter("@pCep", cep)
-                );
-
-                string script = $"alert('{resultado}'); window.location='cliente.aspx';";
-                ScriptManager.RegisterStartupScript(this, GetType(), "msg", script, true);
+                MySqlParameter[] parametros = new MySqlParameter[]
+                {
+                    new MySqlParameter("pId",idCliente),
+                    new MySqlParameter("pNome",nome),
+                    new MySqlParameter("pCnpj",cnpj),
+                    new MySqlParameter("pEmail",email),
+                    new MySqlParameter("pCelular",celular),
+                    new MySqlParameter("pLogradouro",logradouro),
+                    new MySqlParameter("pNumero",numero),
+                    new MySqlParameter("pCidade",cidade),
+                    new MySqlParameter("pBairro",bairro),
+                    new MySqlParameter("pUf",uf),
+                    new MySqlParameter("pCep",cep)
+                };
+                msg = f.RetornoProcedureSimples("sp_EditarCliente", parametros);
             }
+            else
+            {
+                Response.Redirect("cliente.aspx");
+            }
+                script = $"alert('{msg}'); window.location='cliente.aspx';";
+            ScriptManager.RegisterStartupScript(this, GetType(), "msg", script, true);
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)

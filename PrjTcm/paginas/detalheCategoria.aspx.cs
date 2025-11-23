@@ -37,7 +37,7 @@ namespace PrjTcm.paginas
         {
             string[] dados = f.ExecutarProcedureRetornarArray(
                 "sp_RetornarCategoriaPeloId",
-                new MySqlParameter("@pId", int.Parse(idCategoria))
+                new MySqlParameter("pId", int.Parse(idCategoria))
             );
 
             txtNomeCategoria.Text = dados[1];
@@ -64,8 +64,8 @@ namespace PrjTcm.paginas
             {
                 MySqlParameter[] parametros = new MySqlParameter[]
                 {
-                    new MySqlParameter("@pNome",nome),
-                    new MySqlParameter("@pDescricao",descricao)
+                    new MySqlParameter("pNome",nome),
+                    new MySqlParameter("pDescricao",descricao)
                 };
 
                 string msg = f.RetornoProcedureSimples("sp_InserirCategoria", parametros);
