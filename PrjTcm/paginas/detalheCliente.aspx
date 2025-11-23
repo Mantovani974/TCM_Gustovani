@@ -14,16 +14,16 @@
                 <div class="coluna">
                     <div class="campo"><h2>Nome:</h2><asp:TextBox ID="txtNomeCliente" runat="server"></asp:TextBox></div>
                     <div class="campo"><h2>CNPJ:</h2><asp:TextBox ID="txtCnpjCliente" runat="server"></asp:TextBox></div>
-                    <div class="campo"><h2>Celular:</h2><asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></div>
-                    <div class="campo"><h2>Email:</h2><asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></div>
+                    <div class="campo"><h2>Celular:</h2><asp:TextBox ID="txtCelularCliente" runat="server"></asp:TextBox></div>
+                    <div class="campo"><h2>Email:</h2><asp:TextBox ID="txtEmailCliente" runat="server"></asp:TextBox></div>
                 </div>
                 <div class="coluna">
-                    <div class="campo"><h2>Logradouro:</h2><asp:TextBox ID="TextBox4" runat="server"></asp:TextBox></div>
-                    <div class="campo"><h2>Número:</h2><asp:TextBox ID="TextBox5" runat="server"></asp:TextBox></div>
-                    <div class="campo"><h2>Cidade:</h2><asp:TextBox ID="TextBox6" runat="server"></asp:TextBox></div>
-                    <div class="campo"><h2>Bairro:</h2><asp:TextBox ID="TextBox7" runat="server"></asp:TextBox></div>
-                    <div class="campo"><h2>UF:</h2><asp:TextBox ID="TextBox8" runat="server"></asp:TextBox></div>
-                    <div class="campo"><h2>CEP:</h2><asp:TextBox ID="TextBox9" runat="server"></asp:TextBox></div>
+                    <div class="campo"><h2>Logradouro:</h2><asp:TextBox ID="txtLogradouroCliente" runat="server"></asp:TextBox></div>
+                    <div class="campo"><h2>Número:</h2><asp:TextBox ID="txtNumeroCliente" runat="server"></asp:TextBox></div>
+                    <div class="campo"><h2>Cidade:</h2><asp:TextBox ID="txtCidadeCliente" runat="server"></asp:TextBox></div>
+                    <div class="campo"><h2>Bairro:</h2><asp:TextBox ID="txtBairroCliente" runat="server"></asp:TextBox></div>
+                    <div class="campo"><h2>UF:</h2><asp:TextBox ID="txtUfCliente" runat="server"></asp:TextBox></div>
+                    <div class="campo"><h2>CEP:</h2><asp:TextBox ID="txtCepCliente" runat="server"></asp:TextBox></div>
                 </div>
                 <div class="coluna">
 
@@ -31,8 +31,8 @@
             </div>
 
             <div class="botoes-painel">
-                <asp:Button ID="Button1" CssClass="confirmar" runat="server" Text="Confirmar" />
-                <asp:Button ID="Button2" CssClass="cancelar" runat="server" Text="Cancelar" />
+                <asp:Button ID="btnCofirmar" CssClass="confirmar" runat="server" Text="Confirmar" OnClick="btnCofirmar_Click" />
+                <asp:Button ID="btnCancelar" CssClass="cancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
             </div>
     </div>
 </main>

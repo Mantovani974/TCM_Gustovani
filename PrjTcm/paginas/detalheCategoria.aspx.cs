@@ -22,8 +22,6 @@ namespace PrjTcm.paginas
             if (idCategoria == "0")
             {
                 mode = 'A'; // A de adicionar
-                //txtNomeCategoria.Text = "";
-                //txtDescricaoCategoria.Text = "";
             }
             else
             {
@@ -41,12 +39,6 @@ namespace PrjTcm.paginas
                 "sp_RetornarCategoriaPeloId",
                 new MySqlParameter("@pId", int.Parse(idCategoria))
             );
-
-            if (dados.Length < 3)
-            {
-                Response.Write("Categoria não encontrada!");
-                return;
-            }
 
             txtNomeCategoria.Text = dados[1];
             txtDescricaoCategoria.Text = dados[2];
