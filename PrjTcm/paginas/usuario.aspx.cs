@@ -16,9 +16,7 @@ namespace PrjTcm.paginas
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
                 CarregarUsuarios();
-            }
         }
 
         private void CarregarUsuarios()
@@ -47,6 +45,13 @@ namespace PrjTcm.paginas
         }
         protected void gvUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
+            foreach (GridViewRow row in gvUsuarios.Rows)
+            {
+                row.CssClass = row.RowIndex % 2 == 0 ? "linha" : "linhaAlt";
+            }
+
+            gvUsuarios.SelectedRow.CssClass = "linha-selecionada";
+
             btnEditar.Enabled = true;
             btnInativar.Enabled= true;
             btnRestaurar.Enabled= true;

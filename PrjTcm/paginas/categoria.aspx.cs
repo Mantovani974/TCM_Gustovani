@@ -23,7 +23,6 @@ namespace PrjTcm.paginas
         {
             MySqlCommand cmd = new MySqlCommand("sp_ListarCategorias");
             cmd.CommandType = CommandType.StoredProcedure;
-
             gvCategorias.DataSource = funcoes.exSQLParameters(cmd);
             gvCategorias.DataBind();
             btnEditar.Enabled = false;

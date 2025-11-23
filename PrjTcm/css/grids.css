@@ -43,8 +43,8 @@
 
 
 /* Oculta o botão Select (primeira coluna do GridView) */
-#gvCategorias td:first-child,
-#gvCategorias th:first-child {
+.tabela td:first-child,
+.tabela th:first-child {
     display: none;
 }
 

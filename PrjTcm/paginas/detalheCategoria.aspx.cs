@@ -48,36 +48,39 @@ namespace PrjTcm.paginas
 
         protected void btnCofirmar_Click(object sender, EventArgs e)
         {
-            if (mode == 'A') // Procedure para adicionar categoria
+            // Pega valores dos campos
+            string nome = txtNomeCategoria.Text?.Trim();
+            string descricao = txtDescricaoCategoria.Text?.Trim();
+
+            // Impedir strings vazias
+            if (string.IsNullOrWhiteSpace(nome) || string.IsNullOrWhiteSpace(descricao))
             {
-                // Pega valores dos campos
-                string nome = txtNomeCategoria.Text.Trim();
-                string descricao = txtDescricaoCategoria.Text.Trim();
-
-                string resultado = f.RetornoProcedureSimples(
-                    "sp_InserirCategoria",
-                    new MySqlParameter("@pNome", nome),
-                    new MySqlParameter("@pDescricao", descricao)
-                );
-
-                string script = $"alert('{resultado}'); window.location='categoria.aspx';";
-                ScriptManager.RegisterStartupScript(this, GetType(), "msg", script, true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "msg", "alert('Há campos obrigatorios não preenchidos')", true);
+                return;
             }
 
+
+            if (mode == 'A') // Procedure para adicionar categoria
+            {
+                MySqlParameter[] parametros = new MySqlParameter[]
+                {
+                    new MySqlParameter("@pNome",nome),
+                    new MySqlParameter("@pDescricao",descricao)
+                };
+
+                string msg = f.RetornoProcedureSimples("sp_InserirCategoria", parametros);
+                string script = $"alert('{msg}'); window.location='categoria.aspx';";
+                ScriptManager.RegisterStartupScript(this, GetType(), "msg", script, true);
+            }
             else if (mode == 'E')
             {
-                // Pega valores dos campos
-                int id = int.Parse(idCategoria);
-                string nome = txtNomeCategoria.Text.Trim();
-                string descricao = txtDescricaoCategoria.Text.Trim();
-
-                string resultado = f.RetornoProcedureSimples(
-                    "sp_EditarCategoria",
-                    new MySqlParameter("@pId", id),
-                    new MySqlParameter("@pNome", nome),
-                    new MySqlParameter("@pDescricao", descricao)
-                );
-
+                MySqlParameter[] parameters = new MySqlParameter[]
+                {
+                    new MySqlParameter("pId",idCategoria),
+                    new MySqlParameter("pNome",nome),
+                    new MySqlParameter("pDescricao", descricao)
+                };
+                string resultado = f.RetornoProcedureSimples("sp_EditarCategoria",parameters);
                 string script = $"alert('{resultado}'); window.location='categoria.aspx';";
                 ScriptManager.RegisterStartupScript(this, GetType(), "msg", script, true);
             }
