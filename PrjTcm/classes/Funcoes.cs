@@ -135,5 +135,32 @@ namespace PrjTcm
             catch { }
             return retorno;
         }
+
+        public string[] RetornoStringDados(string nomeProcedure)
+        {
+            List<string> dados = new List<string>();
+
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand(nomeProcedure))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // agora usa o método correto
+                    DataTable dt = exSQLParameters(cmd);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        foreach (var item in row.ItemArray)
+                            dados.Add(item.ToString());
+                    }
+                }
+            }
+            catch { }
+
+            return dados.ToArray();
+        }
+
+
     }
 }

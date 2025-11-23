@@ -138,9 +138,11 @@
     <Content Include="paginas\cliente.aspx" />
     <Content Include="paginas\detalheCategoria.aspx" />
     <Content Include="paginas\detalheCliente.aspx" />
+    <Content Include="paginas\detalheProduto.aspx" />
     <Content Include="paginas\detalheUsuario.aspx" />
     <Content Include="paginas\MainLogin.aspx" />
     <Content Include="paginas\painel.aspx" />
+    <Content Include="paginas\produto.aspx" />
     <Content Include="paginas\TestarBanco.aspx" />
     <Content Include="paginas\usuario.aspx" />
     <Content Include="Web.config" />
@@ -178,6 +180,13 @@
     <Compile Include="paginas\detalheCliente.aspx.designer.cs">
       <DependentUpon>detalheCliente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="paginas\detalheProduto.aspx.cs">
+      <DependentUpon>detalheProduto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\detalheProduto.aspx.designer.cs">
+      <DependentUpon>detalheProduto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="paginas\detalheUsuario.aspx.cs">
       <DependentUpon>detalheUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -212,6 +221,13 @@
     </Compile>
     <Compile Include="paginas\painel.aspx.designer.cs">
       <DependentUpon>painel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paginas\produto.aspx.cs">
+      <DependentUpon>produto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\produto.aspx.designer.cs">
+      <DependentUpon>produto.aspx</DependentUpon>
     </Compile>
     <Compile Include="paginas\TestarBanco.aspx.cs">
       <DependentUpon>TestarBanco.aspx</DependentUpon>

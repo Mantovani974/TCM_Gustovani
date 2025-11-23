@@ -1,13 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/paginas/masters/masterGrids.master" AutoEventWireup="true" CodeBehind="usuario.aspx.cs" Inherits="PrjTcm.paginas.usuario" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/paginas/masters/masterGrids.master" AutoEventWireup="true" CodeBehind="produto.aspx.cs" Inherits="PrjTcm.paginas.produto" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="tituloGrid" runat="server">
-    Usuários
+    Produtos
 </asp:Content>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="conteudoGrid" runat="server">
-
-        <div class="area-grid">
-            <asp:GridView ID="gvUsuarios" runat="server"
+    <div class="area-grid">
+            <asp:GridView ID="gvProdutos" runat="server"
                 AutoGenerateColumns="true"
                 ShowHeaderWhenEmpty="true"
                 CssClass="tabela"
@@ -15,10 +14,10 @@
                 RowStyle-CssClass="linha"
                 AlternatingRowStyle-CssClass="linhaAlt"
                 AutoGenerateSelectButton="True"
-                OnRowDataBound="gvUsuarios_RowDataBound"
-                OnSelectedIndexChanged="gvUsuarios_SelectedIndexChanged">
+                OnRowDataBound="gvProdutos_RowDataBound"
+                OnSelectedIndexChanged="gvProdutos_SelectedIndexChanged">
             </asp:GridView>
-        </div>
+    </div>
 
 </asp:Content>
 
