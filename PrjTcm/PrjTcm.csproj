@@ -142,6 +142,7 @@
     <Content Include="paginas\detalheUsuario.aspx" />
     <Content Include="paginas\MainLogin.aspx" />
     <Content Include="paginas\painel.aspx" />
+    <Content Include="paginas\pedido.aspx" />
     <Content Include="paginas\produto.aspx" />
     <Content Include="paginas\TestarBanco.aspx" />
     <Content Include="paginas\usuario.aspx" />
@@ -221,6 +222,13 @@
     </Compile>
     <Compile Include="paginas\painel.aspx.designer.cs">
       <DependentUpon>painel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paginas\pedido.aspx.cs">
+      <DependentUpon>pedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\pedido.aspx.designer.cs">
+      <DependentUpon>pedido.aspx</DependentUpon>
     </Compile>
     <Compile Include="paginas\produto.aspx.cs">
       <DependentUpon>produto.aspx</DependentUpon>
