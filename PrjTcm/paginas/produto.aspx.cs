@@ -30,7 +30,7 @@ namespace PrjTcm.paginas
 
         protected void btnAdicionar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("detalheProduto.aspx");
+            Response.Redirect("detalheProduto.aspx?id=0");
         }
 
         protected void gvProdutos_RowDataBound(object sender, GridViewRowEventArgs e)

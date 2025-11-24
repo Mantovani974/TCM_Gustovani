@@ -19,17 +19,22 @@ namespace PrjTcm.paginas
         {
             idProduto = Request.QueryString["id"];
             PreecherListBox();
-            if(idProduto == "0")
-            {
-                mode = 'A';
-            }
-            else
+            if (idProduto != "0" && !string.IsNullOrEmpty(idProduto))
             {
                 mode = 'E';
                 if (!IsPostBack)
                 {
                     CarregarProduto();
                 }
+
+            }
+            else if(idProduto == "0")
+            {
+                mode = 'A';
+            }
+            else
+            {
+                Response.Redirect("produto.aspx");
             }
         }
         protected void PreecherListBox()
@@ -56,7 +61,7 @@ namespace PrjTcm.paginas
             );
             txtDescricaoProduto.Text = dados[0];
             txtPrecoProduto.Text = dados[1];
-            lbCategorias.SelectedValue = (int.Parse(dados[2]) - 1).ToString();
+            lbCategorias.SelectedValue = dados[2];
             txtCodigoBProduto.Text = dados[3];
             txtQtdeProduto.Text = dados[4];
             txtImagemProduto.Text = dados[5];
@@ -91,13 +96,13 @@ namespace PrjTcm.paginas
             {
                 MySqlParameter[] parametros = new MySqlParameter[] {
                     new MySqlParameter("pDescricao",descricao),
-                    new MySqlParameter("pPreco",preco),
-                    new MySqlParameter("pCategoria",categoria),
-                    new MySqlParameter("pCodigoBarras",codigoBarras),
-                    new MySqlParameter("pQtdeEstoque",qtdeEstoque),
-                    new MySqlParameter("pImagem",imagem)
+                    new MySqlParameter("pPreco",float.Parse(preco)),
+                    new MySqlParameter("pCategoria",int.Parse(categoria)),
+                    new MySqlParameter("pCodBarras",codigoBarras),
+                    new MySqlParameter("pQtde",int.Parse(qtdeEstoque)),
+                    new MySqlParameter("pImg",imagem)
                 };
-                msg = f.RetornoProcedureSimples("sp_AdicionarProduto",parametros);
+                msg = f.RetornoProcedureSimples("sp_InserirProduto", parametros);
             }
             else if (mode == 'E')
             {
@@ -106,9 +111,9 @@ namespace PrjTcm.paginas
                     new MySqlParameter("pDescricao",descricao),
                     new MySqlParameter("pPreco",preco),
                     new MySqlParameter("pCategoria",categoria),
-                    new MySqlParameter("pCodigoBarras",codigoBarras),
-                    new MySqlParameter("pQtdeEstoque",qtdeEstoque),
-                    new MySqlParameter("pImagem",imagem)
+                    new MySqlParameter("pCodBarras",codigoBarras),
+                    new MySqlParameter("pQtde",qtdeEstoque),
+                    new MySqlParameter("pImg",imagem)
                 };
                 msg = f.RetornoProcedureSimples("sp_EditarProduto",parametros);
             }

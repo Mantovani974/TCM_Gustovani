@@ -17,17 +17,21 @@ namespace PrjTcm.paginas
         protected void Page_Load(object sender, EventArgs e)
         {
             idCliente = Request.QueryString["id"];
-            if (idCliente == "0")
+            if (idCliente != "0" && !string.IsNullOrEmpty(idCliente))
+            {
+                mode = 'E';
+                if (!IsPostBack)
+                {
+                    CarregarCliente();
+                }
+            }
+            else if(idCliente == "0")
             {
                 mode = 'A'; // A de adicionar
             }
             else
             {
-                mode = 'E'; // E de editar
-                if (!IsPostBack) // só faz na primeira vez que carrega ao inves de sempre que clica
-                {
-                    CarregarCliente();
-                }
+                Response.Redirect("cliente.aspx");
             }
         }
 
