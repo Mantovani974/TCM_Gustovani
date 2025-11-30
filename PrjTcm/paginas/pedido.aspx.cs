@@ -13,7 +13,8 @@ namespace PrjTcm.paginas
         Funcoes funcoes = new Funcoes();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!IsPostBack)
+                CarregarPedidos();
         }
         private void CarregarPedidos()
         {
@@ -51,7 +52,7 @@ namespace PrjTcm.paginas
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             string id = gvPedidos.SelectedRow.Cells[1].Text;
-            Response.Redirect("detalheProduto.aspx?id=" + id);
+            Response.Redirect("detalhePedido.aspx?id=" + id);
         }
 
         protected void btnRestaurar_Click(object sender, EventArgs e)
@@ -60,7 +61,7 @@ namespace PrjTcm.paginas
             MySqlParameter[] parametros = new MySqlParameter[] {
                 new MySqlParameter("pId",id)
             };
-            string msg = funcoes.RetornoProcedureSimples("sp_AtivarProduto", parametros);
+            string msg = funcoes.RetornoProcedureSimples("sp_AtivarPedido", parametros);
             ScriptManager.RegisterStartupScript(this, GetType(), "msg", $"alert('{msg}');", true);
             CarregarPedidos();
         }
@@ -71,9 +72,14 @@ namespace PrjTcm.paginas
             MySqlParameter[] parametros = {
                 new MySqlParameter("@pId", id)
             };
-            string msg = funcoes.RetornoProcedureSimples("sp_InativarProduto", parametros);
+            string msg = funcoes.RetornoProcedureSimples("sp_InativarPedido", parametros);
             ScriptManager.RegisterStartupScript(this, GetType(), "msg", $"alert('{msg}');", true);
             CarregarPedidos();
+        }
+
+        protected void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("detalhePedido.aspx?id=0");
         }
     }
 }

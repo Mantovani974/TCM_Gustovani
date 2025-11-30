@@ -138,6 +138,7 @@
     <Content Include="paginas\cliente.aspx" />
     <Content Include="paginas\detalheCategoria.aspx" />
     <Content Include="paginas\detalheCliente.aspx" />
+    <Content Include="paginas\detalhePedido.aspx" />
     <Content Include="paginas\detalheProduto.aspx" />
     <Content Include="paginas\detalheUsuario.aspx" />
     <Content Include="paginas\MainLogin.aspx" />
@@ -180,6 +181,13 @@
     </Compile>
     <Compile Include="paginas\detalheCliente.aspx.designer.cs">
       <DependentUpon>detalheCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paginas\detalhePedido.aspx.cs">
+      <DependentUpon>detalhePedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\detalhePedido.aspx.designer.cs">
+      <DependentUpon>detalhePedido.aspx</DependentUpon>
     </Compile>
     <Compile Include="paginas\detalheProduto.aspx.cs">
       <DependentUpon>detalheProduto.aspx</DependentUpon>
