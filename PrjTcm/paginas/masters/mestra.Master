@@ -5,6 +5,8 @@
 <html lang="pt-br">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -73,7 +75,30 @@
                 </a>
             </div>
         </div>
+
+        <div class="espaco-mobile"></div> <%-- só pra espaçar a logo do hamburguer --%>
+
+        <div class="burguer">
+            <div class="botao-menu" onclick="alternarMenu()"><img src="../imgs/hamburguer.png" alt="icone menu hamburguer"></div>
+        </div>
     </header>
+
+    <div id="menu-lateral" class="menu-lateral">
+        <div class="conteudo-menu">
+            <div class="cabecalho-menu">
+                <h2>Menu</h2>
+                <button class="botao-fechar" onclick="alternarMenu()">✕</button>
+            </div>
+            <ul>
+                <li><a href="pedido.aspx">Pedidos</a></li>
+                <li><a href="produto.aspx">Produtos</a></li>
+                <li><a href="cliente.aspx">Clientes</a></li>
+                <li><a href="representante.aspx">Representantes</a></li>
+                <li><a href="categoria.aspx">Categorias</a></li>
+                <li><a href="usuario.aspx">Usuários</a></li>
+            </ul>
+        </div>
+    </div>
 
     <div class="espaco-header"></div>
 
@@ -83,5 +108,8 @@
     </div>
 
     </form>
+
+    <script src="/scripts/menu.js"></script>
+
 </body>
 </html>

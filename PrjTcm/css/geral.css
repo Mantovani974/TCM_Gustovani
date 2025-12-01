@@ -49,6 +49,72 @@ header span{
         }
 
 
+/* pra esconder o mobile, na versao de pc */
+.burguer,
+.espaco-mobile {
+    display: none;
+}
+
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 99999999;
+}
+
+    .menu-lateral.ativo {
+        transform: translateX(0);
+    }
+
+.conteudo-menu {
+    padding: 20px;
+}
+
+.cabecalho-menu {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+    .cabecalho-menu h2 {
+        margin: 0;
+        width: 85%;
+    }
+
+.botao-fechar {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.conteudo-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.conteudo-menu li {
+    margin: 15px 0;
+}
+
+.conteudo-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+    .conteudo-menu a:hover {
+        color: #c0c0c0;
+    }
+
+
+
 .espaco-header {
     width: 100%;
     height: 120px;
@@ -56,6 +122,50 @@ header span{
 
 
 @media (max-width: 480px) {
-       
+
+    header {
+        width: 100%;
+        height: 65px;
+        display: flex;
+    }
+
+    .espaco-mobile {
+        display: block;
+        width: 40%;
+    }
+
+    .logo,
+    .burguer {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .botao-menu{
+        width: 35%;
+        height: auto;
+    }
+
+        .logo img {
+            width: 70%;
+            height: 80%;
+        }
+
+        .burguer img {
+            width: 100%;
+            aspect-ratio: 1/1;
+        }
+
+    .menu-pc {
+        display: none;
+    }
+
+
+
+    .espaco-header {
+        height: 65px;
+    }
+
 }
 
