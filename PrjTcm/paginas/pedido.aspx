@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/paginas/masters/masterGrids.master" AutoEventWireup="true" CodeBehind="pedido.aspx.cs" Inherits="PrjTcm.paginas.pedido" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="tituloGrid" runat="server">
-    Produtos
+    Pedidos
 </asp:Content>
 
 

@@ -146,7 +146,6 @@ namespace PrjTcm
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    // agora usa o método correto
                     DataTable dt = exSQLParameters(cmd);
 
                     foreach (DataRow row in dt.Rows)
@@ -161,6 +160,36 @@ namespace PrjTcm
             return dados.ToArray();
         }
 
+        public string[][] RetornoMatrizDados(string nomeProcedure, params MySqlParameter[] parametros)
+        {
+            List<string[]> linhas = new List<string[]>();
+
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand(nomeProcedure))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    foreach (var p in parametros)
+                        cmd.Parameters.Add(p);
+
+                    DataTable dt = exSQLParameters(cmd);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        string[] linha = new string[row.ItemArray.Length];
+
+                        for (int i = 0; i < row.ItemArray.Length; i++)
+                            linha[i] = row.ItemArray[i].ToString();
+
+                        linhas.Add(linha);
+                    }
+                }
+            }
+            catch { }
+
+            return linhas.ToArray();
+        }
 
     }
 }
