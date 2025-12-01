@@ -77,7 +77,8 @@
     .campo select {
         box-sizing: border-box;
         width: 100%;
-        max-height: 50%;
+        max-height: 2.3vh;
+        font-size: 2vh;
     }
 
 .botoes-painel {
@@ -109,3 +110,64 @@
             text-decoration: underline;
 
         }
+
+
+
+
+/* ==================== */
+/* Área dos Itens       */
+/* ==================== */
+
+.areaItens {
+    width: 90%;
+    margin-top: 2vw;
+}
+
+    .areaItens h1 {
+        font-size: 2.5vw;
+        margin-bottom: 1vw;
+        font-weight: bold;
+    }
+
+/* Container do item gerado em C# */
+.card-item-pedido {
+    width: 100%;
+    padding: 1.2vw;
+    margin-bottom: 1vw;
+    border-radius: 1vw;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px #00000030;
+    display: flex;
+    gap: 0.2vw;
+    align-items:center;
+}
+
+    /* Labels de dentro do Card */
+    .card-item-pedido label {
+        font-size: 1.2vw;
+        margin: 0;
+        font-weight: 500;
+    }
+
+        .card-item-pedido label strong {
+            font-weight: bold;
+        }
+
+.btn-remover-item {
+    align-self: flex-end;
+    margin-top: 0.5vw;
+    padding: 0.3vw 0.7vw;
+    font-size: 1.2vw;
+    font-weight: bold;
+    color: white;
+    background-color: #d9534f;
+    border: none;
+    border-radius: 0.4vw;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+    .btn-remover-item:hover {
+        background-color: #c9302c;
+        transform: scale(1.1);
+    }
