@@ -11,71 +11,35 @@ namespace PrjTcm.paginas
 {
 
 
-    public partial class detalhePedido
+    public partial class itemPedido
     {
 
         /// <summary>
-        /// lbClientes control.
+        /// lbProdutos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lbClientes;
+        protected global::System.Web.UI.WebControls.ListBox lbProdutos;
 
         /// <summary>
-        /// lbRepresentantes control.
+        /// txtQuantidadeItem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lbRepresentantes;
+        protected global::System.Web.UI.WebControls.TextBox txtQuantidadeItem;
 
         /// <summary>
-        /// lbStatusPedido control.
+        /// txtDescontoItem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lbStatusPedido;
-
-        /// <summary>
-        /// txtDataPedido control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDataPedido;
-
-        /// <summary>
-        /// txtFretePedido control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFretePedido;
-
-        /// <summary>
-        /// pItens control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pItens;
-
-        /// <summary>
-        /// btnAdicionarItem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdicionarItem;
+        protected global::System.Web.UI.WebControls.TextBox txtDescontoItem;
 
         /// <summary>
         /// btnCofirmar control.

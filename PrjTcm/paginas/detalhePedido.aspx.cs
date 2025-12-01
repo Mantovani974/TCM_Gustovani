@@ -17,13 +17,13 @@ namespace PrjTcm.paginas
         {
             idPedido = Request.QueryString["id"];
             PreencherListBox();
+            CarregarItensPedido();
             if (idPedido != "0" && !string.IsNullOrEmpty(idPedido))
             {
                 mode = 'E';
                 if (!IsPostBack)
                 {
                     CarregarDetalhesPedido();
-                    CarregarItensPedido();
                 }
             }
             else if (idPedido == "0")
@@ -103,6 +103,7 @@ namespace PrjTcm.paginas
                 lblDesconto.Text = "Desconto: " + desconto*100 + "%";
                 Label  lblPrecoTotal  =  new Label();
                 lblPrecoTotal.Text = "Preço  Total: R$"+total;
+                Carditem.Controls.Add(new LiteralControl("<br/>"));
                 Carditem.Controls.Add(lblNomeProduto);
                 Carditem.Controls.Add(lblQuantidade);
                 Carditem.Controls.Add(lblDesconto);
@@ -130,5 +131,19 @@ namespace PrjTcm.paginas
             CarregarItensPedido();
         }
 
+        protected void btnAdicionarItem_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("itemPedido.aspx?id=" + idPedido);
+        }
+
+        protected void btnCofirmar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -25,10 +25,16 @@
                 </div>
             </div>
             <div class="areaItens">
+                                    <h1>Itens  do  Pedidos</h1>
                 <asp:Panel ID="pItens" runat="server">
-                    <h1>Itens  do  Pedidos</h1>
-                    <br />
                 </asp:Panel>
+                <asp:Button ID="btnAdicionarItem" runat="server" Text="Adicionar Novo Item" OnClick="btnAdicionarItem_Click" />
+            </div>
+            <div>
+                <div class="botoes-painel">
+                    <asp:Button ID="btnCofirmar" CssClass="confirmar" runat="server" Text="Confirmar" OnClick="btnCofirmar_Click" />
+                    <asp:Button ID="btnCancelar" CssClass="cancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+                </div>
             </div>
         </div>
     </main>
