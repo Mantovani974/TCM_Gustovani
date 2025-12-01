@@ -127,6 +127,7 @@
     <Content Include="css\login.css" />
     <Content Include="css\painel.css" />
     <Content Include="Global.asax" />
+    <Content Include="imgs\hamburguer.png" />
     <Content Include="imgs\logo.png" />
     <Content Include="imgs\painel\iconCategoria.png" />
     <Content Include="imgs\painel\iconCliente.png" />
@@ -148,6 +149,7 @@
     <Content Include="paginas\representante.aspx" />
     <Content Include="paginas\TestarBanco.aspx" />
     <Content Include="paginas\usuario.aspx" />
+    <Content Include="scripts\menu.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
