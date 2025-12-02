@@ -33,6 +33,13 @@
 
         <div class="menu-pc">
             <div>
+                <a href="painel.aspx">
+                    <span>
+                        Home
+                    </span>
+                </a>
+            </div>
+            <div>
                 <a href="pedido.aspx">
                     <span>
                         Pedidos
@@ -90,6 +97,7 @@
                 <button class="botao-fechar" onclick="alternarMenu()">✕</button>
             </div>
             <ul>
+                <li><a href="painel.aspx">Home</a></li>
                 <li><a href="pedido.aspx">Pedidos</a></li>
                 <li><a href="produto.aspx">Produtos</a></li>
                 <li><a href="cliente.aspx">Clientes</a></li>

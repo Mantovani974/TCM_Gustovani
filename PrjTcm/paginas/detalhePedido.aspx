@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <main>
         <div class="painel">
-            <div class="titulo-painel"><h1>Dados Pedido</h1></div>
+            <div class="titulo-painel">Dados Pedido</div>
 
             <div class="campos-painel">
                 <div class="coluna">

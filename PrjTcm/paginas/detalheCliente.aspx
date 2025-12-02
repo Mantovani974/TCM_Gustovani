@@ -8,7 +8,7 @@
 
 <main>
     <div class="painel">
-        <div class="titulo-painel"><h1>Clientes</h1></div>
+        <div class="titulo-painel">Detalhes Cliente</div>
 
             <div class="campos-painel">
                 <div class="coluna">
