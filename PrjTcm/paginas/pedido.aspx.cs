@@ -79,7 +79,8 @@ namespace PrjTcm.paginas
 
         protected void btnAdicionar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("detalhePedido.aspx?id=0");
+            int novoId = int.Parse(funcoes.RetornoProcedureSimples("sp_CriarPedidoDefault"));
+            Response.Redirect("detalhePedido.aspx?id="+novoId+"&novo=1");
         }
     }
 }

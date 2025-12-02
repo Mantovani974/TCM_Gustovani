@@ -85,8 +85,8 @@ namespace PrjTcm.paginas
             string msg = "erro";
             string script;
 
-            if (string.IsNullOrEmpty(descricao) || string.IsNullOrEmpty(preco) || string.IsNullOrEmpty(categoria)
-                || string.IsNullOrEmpty(codigoBarras) || string.IsNullOrEmpty(qtdeEstoque))
+            if (string.IsNullOrWhiteSpace(descricao) || string.IsNullOrWhiteSpace(preco) || string.IsNullOrWhiteSpace(categoria)
+                || string.IsNullOrWhiteSpace(codigoBarras) || string.IsNullOrWhiteSpace(qtdeEstoque))
             {
                 script = "alert('Por favor, preencha todos os campos obrigatórios.');";
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);

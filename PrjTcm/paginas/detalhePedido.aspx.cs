@@ -1,6 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Tls;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,12 +17,18 @@ namespace PrjTcm.paginas
         string idPedido;
         protected void Page_Load(object sender, EventArgs e)
         {
-            idPedido = Request.QueryString["id"];
+            bool  novo =  Request.QueryString["novo"] == "1";
+            if (novo) 
+                mode = 'A';
+            else
+            {
+                mode = 'E';
+            }
+                idPedido = Request.QueryString["id"];
             PreencherListBox();
             CarregarItensPedido();
             if (idPedido != "0" && !string.IsNullOrEmpty(idPedido))
             {
-                mode = 'E';
                 if (!IsPostBack)
                 {
                     CarregarDetalhesPedido();
@@ -138,12 +146,68 @@ namespace PrjTcm.paginas
 
         protected void btnCofirmar_Click(object sender, EventArgs e)
         {
+            //Pega valores dos campos
+            string cliente = lbClientes.SelectedValue;
+            string representante = lbRepresentantes.SelectedValue;
+            string status = lbStatusPedido.SelectedValue;
+            DateTime dataEnt = DateTime.Parse(txtDataPedido.Text?.Trim());
+            string frete = txtFretePedido.Text?.Trim();
 
+            //Validação
+            if (string.IsNullOrWhiteSpace(cliente) ||
+                string.IsNullOrWhiteSpace(representante) ||
+                string.IsNullOrWhiteSpace(status) ||
+                string.IsNullOrWhiteSpace(frete))
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "msg",
+                    "alert('Há campos obrigatórios não preenchidos');", true);
+                return;
+            }
+
+            //Converter status
+            status = (status == "1") ? "PENDENTE" : "CONCLUIDO";
+
+            string msg = "";
+
+            //Se estiver editando
+            if (mode == 'E')
+            {
+                MySqlParameter[] parametros = new MySqlParameter[] {
+            new MySqlParameter("pIdPed", idPedido),
+            new MySqlParameter("pIdCli", int.Parse(cliente)),
+            new MySqlParameter("pIdRep", int.Parse(representante)),
+            new MySqlParameter("pStatusPed", status),
+            new MySqlParameter("pDataEnt", dataEnt),
+            new MySqlParameter("pFrete", frete)
+        };
+
+                // ❗ AQUI ESTAVA FALTANDO
+                msg = funcoes.RetornoProcedureSimples("sp_EditarPedido", parametros);
+            }
+
+            //Mensagem + redirect
+            string script =
+                $"alert('{msg}'); window.location='pedido.aspx';";
+
+            ScriptManager.RegisterStartupScript(this, GetType(), "msg", script, true);
         }
+
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-
+           if(mode  == 'E')
+            {
+                Response.Redirect("pedido.aspx");
+                return;
+            }
+           string msg = funcoes.RetornoProcedureSimples(
+                "sp_DeletarPedidoDefault",
+                new MySqlParameter("pIdPed", idPedido)
+            );
+            //Mensagem + redirect
+            string script =
+                $"alert('{msg}'); window.location='pedido.aspx';";
+            ScriptManager.RegisterStartupScript(this, GetType(), "msg", script, true);
         }
     }
 }
