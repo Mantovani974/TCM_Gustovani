@@ -22,34 +22,28 @@ namespace PrjTcm.paginas
 
         protected void btnEntrar_Click(object sender, EventArgs e)
         {
-            try
+            string nome = txtNome.Text;
+            string senha = txtSenha.Text;
+            if (string.IsNullOrWhiteSpace(nome) || string.IsNullOrWhiteSpace(senha))
             {
-                MySqlCommand comando = new MySqlCommand();
-                comando.CommandText =
-                    "SELECT * FROM tblUsuario WHERE nome = @usuario AND senha = @senha";
-
-                string usuario = txtNome.Text;
-                string senha = txtSenha.Text;
-
-                comando.Parameters.AddWithValue("@usuario", usuario);
-                comando.Parameters.AddWithValue("@senha", senha);
-
-                DataTable dt = f.exSQLParameters(comando);
-
-                if (dt != null && dt.Rows.Count > 0)
-                {
-                    Session["usuario"] = dt.Rows[0]["nome"].ToString();
-                    Response.Redirect("painel.aspx");
-                }
-                else
-                {
-                    lblMensagem.Text = "Usuário ou senha inválidos.";
-                }
+                ScriptManager.RegisterStartupScript(this, GetType(), "msg", "alert('Há campos obrigatorios não preenchidos')", true);
+                return;
             }
-            catch (Exception ex)
+            MySqlParameter[] parametros = {
+                new MySqlParameter("p_usuario",txtNome.Text) ,
+                new MySqlParameter("p_senha",txtSenha.Text)
+            };
+            string msg = f.RetornoProcedureSimples("sp_validar_login", parametros);
+            if (msg == "1")
             {
-                lblMensagem.Text = "Erro ao efetuar login: " + ex.Message;
+                Session["usuario"] = txtNome.Text;
+                Response.Redirect("painel.aspx");
             }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "msg", "alert('Login  ou Senha errados')", true);
+            }
+
         }
     }
 }

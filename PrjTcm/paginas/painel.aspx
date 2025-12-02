@@ -48,7 +48,7 @@
                         </a>
                     </div>
                 </div>
-            <asp:Button ID="btnSair" runat="server" Text="Sair" />
+            <asp:Button ID="btnSair" runat="server" Text="Sair" OnClick="btnSair_Click" />
             </div>
     </main>
 </asp:Content>

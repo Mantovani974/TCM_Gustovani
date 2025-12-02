@@ -13,5 +13,12 @@ namespace PrjTcm.paginas
         {
 
         }
+
+        protected void btnSair_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("MainLogin.aspx");
+        }
     }
 }
