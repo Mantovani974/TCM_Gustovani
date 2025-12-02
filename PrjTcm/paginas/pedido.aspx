@@ -5,7 +5,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="conteudoGrid" runat="server">
-    <div class="area-grid">
+    <div class="grid-area-fixa">
         <asp:GridView ID="gvPedidos" runat="server"
             AutoGenerateColumns="true"
             ShowHeaderWhenEmpty="true"

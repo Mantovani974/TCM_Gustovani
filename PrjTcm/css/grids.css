@@ -1,28 +1,40 @@
 ﻿.container-crud {
-    width: 85%;
-    margin: 10vh auto;
+    width: 90vw;
+    height: 35vw;
+    margin-top: 5vh;
     background: #e5e5e5;
-    padding: 30px;
     border-radius: 25px;
+    box-sizing: border-box;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .titulo-crud {
+    width: 100%;
+    height: 10%;
     font-family: 'Anton', sans-serif;
     font-size: 2vw;
-    margin-bottom: 20px;
 }
 
 .area-grid {
-    margin-bottom: 30px;
+    width: 100%;
+    height: 70%;
 }
 
 .botoes-crud {
+    width: 100%;
+    height: 18%;
     display: flex;
+    align-items: flex-end;
     justify-content: center;
 }
 
     .botoes-crud input{
-        width:10vw;
+        width:12vw;
+        height: 4vw;
         border-radius: 10px;
         font-size: 1.5vw;
         cursor: pointer;
@@ -55,17 +67,22 @@
 /*confirgurações que estavam no geral.css*/
 
 
+.grid-area-fixa{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
 .tabela {
-    width: 80%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 100%;
     font-family: Arial, sans-serif;
+    font-size: 1vw;
 }
 
     .tabela th, .tabela td {
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
+        padding: 0.3vw;
+        text-align: center;
+        white-space: nowrap;
     }
 
     .tabela th {
@@ -73,6 +90,7 @@
         color: white;
         font-weight: bold;
         text-align: left;
+        padding-right: 50px;
     }
 
     .tabela tbody tr.linha {
@@ -103,3 +121,40 @@
         display: table-row;
         color: #555;
     }
+
+
+
+
+
+@media (max-width: 480px) {
+    .container-crud {
+        height: 50vh;
+        border-radius: 10px;
+    }
+
+    .titulo-crud{
+        font-size: 4.5vw;
+    }
+
+    .botoes-crud {
+        height: 15%;
+    }
+
+        .botoes-crud input {
+            width: 20vw;
+            height: 5vw;
+            border-radius: 5px;
+            font-size: 3vw;
+            cursor: pointer;
+        }
+
+
+
+    .tabela {
+        font-size: 3vw;
+    }
+
+        .tabela th {
+            padding-right: 20px;
+        }
+}
