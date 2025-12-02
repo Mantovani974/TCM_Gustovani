@@ -1,8 +1,8 @@
 ﻿.container-crud {
     width: 90vw;
-    height: 35vw;
-    margin-top: 5vh;
-    background: #e5e5e5;
+    height: 40vw;
+    margin-top: 3vh;
+    background-color: #e5e5e5;
     border-radius: 25px;
     box-sizing: border-box;
     padding: 2vw;
@@ -16,7 +16,7 @@
     width: 100%;
     height: 10%;
     font-family: 'Anton', sans-serif;
-    font-size: 2vw;
+    font-size: 3vw;
 }
 
 .area-grid {
@@ -29,7 +29,7 @@
     height: 18%;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
     .botoes-crud input{
@@ -81,16 +81,15 @@
 
     .tabela th, .tabela td {
         padding: 0.3vw;
-        text-align: center;
+        text-align: left;
         white-space: nowrap;
+        padding-right: 30px;
     }
 
     .tabela th {
         background-color: royalblue;
         color: white;
         font-weight: bold;
-        text-align: left;
-        padding-right: 50px;
     }
 
     .tabela tbody tr.linha {
@@ -133,7 +132,8 @@
     }
 
     .titulo-crud{
-        font-size: 4.5vw;
+        height: 7%;
+        font-size: 5vw;
     }
 
     .botoes-crud {
@@ -145,7 +145,6 @@
             height: 5vw;
             border-radius: 5px;
             font-size: 3vw;
-            cursor: pointer;
         }
 
 
